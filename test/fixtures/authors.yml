@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  Ustreamid: MyString
+  Ustreamchat: MyString
+  twitter: MyString
+
+two:
+  name: MyString
+  email: MyString
+  Ustreamid: MyString
+  Ustreamchat: MyString
+  twitter: MyString
