@@ -18,6 +18,15 @@ test:
   pool: 5
   timeout: 5000
 
+#production: 
+#   encoding: unicode 
+#   adapter: postgresql 
+#   username: username 
+#   port: 5432 
+#   host: hostname 
+#   database: localhost 
+#   password: zetgat
+
 production:
   adapter: sqlite3
   database: db/production.sqlite3

@@ -1,4 +1,11 @@
 Gurutapas::Application.routes.draw do
+  resources :bookpdfs
+
+  get "bookfile/show"
+
+  get "attachments/show"
+
+  resources :bookfile
   resources :authors
 
   # The priority is based upon order of creation:

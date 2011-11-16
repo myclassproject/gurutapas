@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115024313) do
+ActiveRecord::Schema.define(:version => 20111116201732) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20111115024313) do
     t.string   "Ustreamid"
     t.string   "Ustreamchat"
     t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookfiles", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bookpdfs", :force => true do |t|
+    t.string   "filename"
+    t.string   "filetype"
+    t.binary   "filedata"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
