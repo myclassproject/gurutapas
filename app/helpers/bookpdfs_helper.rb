@@ -1,0 +1,2 @@
+module BookpdfsHelper
+end

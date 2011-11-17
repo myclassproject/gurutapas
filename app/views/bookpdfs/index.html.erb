@@ -1,0 +1,27 @@
+<h1>Listing bookpdfs</h1>
+
+<table>
+  <tr>
+    <th>Filename</th>
+    <th>Filetype</th>
+    <th>Filedata</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookpdfs.each do |bookpdf| %>
+  <tr>
+    <td><%= bookpdf.filename %></td>
+    <td><%= bookpdf.filetype %></td>
+    <td><%= bookpdf.filedata %></td>
+    <td><%= link_to 'Show', bookpdf %></td>
+    <td><%= link_to 'Edit', edit_bookpdf_path(bookpdf) %></td>
+    <td><%= link_to 'Destroy', bookpdf, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bookpdf', new_bookpdf_path %>

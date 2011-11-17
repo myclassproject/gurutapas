@@ -1,0 +1,29 @@
+<%= form_for(@bookpdf) do |f| %>
+  <% if @bookpdf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookpdf.errors.count, "error") %> prohibited this bookpdf from being saved:</h2>
+
+      <ul>
+      <% @bookpdf.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :filename %><br />
+    <%= f.text_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :filetype %><br />
+    <%= f.text_field :filetype %>
+  </div>
+  <div class="field">
+    <%= f.label :filedata %><br />
+    <%= f.file_field :filedata %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

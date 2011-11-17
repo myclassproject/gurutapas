@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Filename:</b>
+  <%= @bookpdf.filename %>
+</p>
+
+<p>
+  <b>Filetype:</b>
+  <%= @bookpdf.filetype %>
+</p>
+
+<p>
+  <b>Filedata:</b>
+  <%= @bookpdf.filedata %>
+</p>
+
+
+<%= link_to 'Edit', edit_bookpdf_path(@bookpdf) %> |
+<%= link_to 'Back', bookpdfs_path %>
