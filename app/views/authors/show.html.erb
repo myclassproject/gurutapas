@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @author.name %>
-</p>
+<div id="image4" style="position:absolute; overflow:hidden; left:0px; top:0px; z-index:2">
+<img src="http://rolemodelenterprises.com/gurutapas/images/modevLisa.jpg" alt="" title="" border=0 width=130 height=120><br></div>
 
-<p>
-  <b>Email:</b>
-  <%= @author.email %>
-</p>
 
-<p>
-  <b>Ustreamid:</b>
+<div id="image4" style="position:absolute; overflow:hidden; left:0px; top:125px; z-index:2">
+<b>Live audience: </b><p>
+<img src="http://rolemodelenterprises.com/gurutapas/images/bengal.png" alt="" title="" border=0><br>
+<img src="http://rolemodelenterprises.com/gurutapas/images/dane.png" alt="" title="" border=0><br>
+<img src="http://rolemodelenterprises.com/gurutapas/images/spaz.png" alt="" title="" border=0><br>
+<img src="http://rolemodelenterprises.com/gurutapas/images/lisafb.png" alt="" title="" border=0><br>
+<img src="http://rolemodelenterprises.com/gurutapas/images/susan.png" alt="" title="" border=0><br>
+<img src="http://rolemodelenterprises.com/gurutapas/images/gareth.png" alt="" title="" border=0><br>
+
+</div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:160px; top:0px; z-index:2">
+  <h1><%= @author.name %></h1>   <img src="http://rolemodelenterprises.com/gurutapas/images/twitter.png" alt="" title="" border=0> @<%= link_to @author.twitter,  "http://twitter.com/" << @author.twitter %></div>
+
+<div id="image4" style="position:absolute; overflow:hidden; left:160px; top:140px; z-index:2">
   <%= @author.Ustreamid.html_safe %>
-</p>
+<br>
+  <%= @author.Ustreamchat.html_safe %></div>
 
-<p>
-  <b>Ustreamchat:</b>
-  <%= @author.Ustreamchat %>
-</p>
-
-<p>
-  <b>Twitter:</b>
-  <%= @author.twitter %>
 </p>
 
 
