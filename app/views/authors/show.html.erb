@@ -26,8 +26,12 @@
   <h1><%= @author.name %></h1> </div>  
 
 <div id="image7" style="position:absolute; overflow:hidden; left:400px; top:80px; z-index:2">
- <a href= <%= "http://twitter.com/" << @author.twitter %> > <img src="http://rolemodelenterprises.com/gurutapas/images/twitter.png" border=0></a> </div>
-<div id="image8" style="position:absolute; overflow:hidden; left:440px; top:90px; z-index:2"> @<%= link_to @author.twitter,  "http://twitter.com/" << @author.twitter %></div>
+ <a href= <%= "http://twitter.com/" << @author.twitter %> > <img src="http://rolemodelenterprises.com/gurutapas/images/twitter.png" border=0></a> <br>
+Book title: <%= @author.title %> <br>
+<a href= <%= @author.bkpurchaseurl %> > Purchase book </a> 
+</div>
+<div id="image8" style="position:absolute; overflow:hidden; left:440px; top:90px; z-index:2"> @<%= link_to @author.twitter,  "http://twitter.com/" << @author.twitter %>
+</div>
 
 
 <div id="image5" style="position:absolute; overflow:hidden; left:160px; top:210px; z-index:2">
