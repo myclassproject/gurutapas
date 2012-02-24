@@ -308,7 +308,27 @@ function mce_success_cb(resp){
 <p><p>
 <h1>GuruTapas Featured Bookworms</h1>
 
+<table>
+  <tr>
+    <th>.</th>
+    <th>Name</th>    <th>&nbsp &nbsp</th>
+    <th>Favorite Author</th>    <th>&nbsp &nbsp</th>
+    <th>Favorite Book</th>
+  </tr>
 
+<% @bookworms.each do |bookworm| %>
+  <tr>
+    <td> 
+
+</td>
+    <td><%= link_to bookworm.name, bookworm %></td> 
+    <td></td>
+    <td><%= bookworm.fanauthor %></td>
+    <td></td>
+    <td><%= bookworm.fanbook %></td>
+  </tr>
+<% end %>
+</table>
 
 <br />
 
