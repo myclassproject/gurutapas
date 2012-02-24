@@ -1,6 +1,7 @@
 
 <body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
-<%= link_to(image_tag(@bookworm.picurl, :width => '150', :height => '150')) %>
+
+<img src= <%= @bookworm.picurl %> border=0 width=150 height=150>
 
 <div id="name" style="position:absolute; left:180px; top:10px; width:220px">
   <h1><%= @bookworm.name %></h1>
