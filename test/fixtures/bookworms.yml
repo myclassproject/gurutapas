@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  picurl: MyString
+  fanbook: MyString
+  review: MyString
+  fanbook2: MyString
+  review2: MyString
+  fanbook3: MyString
+  review3: MyString
+  fanauthor: MyString
+  fanauthor2: MyString
+  fanauthor3: MyString
+  genre: MyString
+  genre2: MyString
+  genre3: MyString
+  todo: MyString
+  todo2: MyString
+  twitter: MyString
+  facebook: MyString
+
+two:
+  name: MyString
+  email: MyString
+  picurl: MyString
+  fanbook: MyString
+  review: MyString
+  fanbook2: MyString
+  review2: MyString
+  fanbook3: MyString
+  review3: MyString
+  fanauthor: MyString
+  fanauthor2: MyString
+  fanauthor3: MyString
+  genre: MyString
+  genre2: MyString
+  genre3: MyString
+  todo: MyString
+  todo2: MyString
+  twitter: MyString
+  facebook: MyString

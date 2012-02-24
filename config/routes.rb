@@ -1,4 +1,6 @@
 Gurutapas::Application.routes.draw do
+  resources :bookworms
+
   resources :bookpdfs
 
   get "bookfile/show"

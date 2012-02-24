@@ -1,0 +1,107 @@
+
+<body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
+<%= link_to(image_tag(@bookworm.picurl, :width => '150', :height => '150')) %>
+
+<div id="name" style="position:absolute; left:180px; top:10px; width:220px">
+  <h1><%= @bookworm.name %></h1>
+  &nbsp&nbsp<b>reads:</b><p>
+  &nbsp&nbsp&nbsp&nbsp<%= @bookworm.genre %><p>
+  &nbsp&nbsp&nbsp&nbsp<%= @bookworm.genre2 %><p>
+  &nbsp&nbsp&nbsp&nbsp<%= @bookworm.genre3 %>
+</div>
+
+<div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:270px; z-index:3">
+  <h1>I'm a fan of:</h1>
+  <table width = "410">
+  <tr>
+    <td width="50"><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= @bookworm.fanauthor %>" ></td>
+    <td width="90"><font color=773355><b><%= @bookworm.fanauthor %> </b></td>
+    <td><%= @bookworm.authorreview %> </td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= @bookworm.fanauthor2 %>" ></td>
+    <td><font color=773355><b><%= @bookworm.fanauthor2 %></b> </td>
+    <td><%= @bookworm.authorreview2 %> </td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= @bookworm.fanauthor3 %>" ></td>
+    <td><font color=773355><b><%= @bookworm.fanauthor3 %></b> </td>
+    <td><%= @bookworm.authorreview3 %> </td>
+  </tr></table>
+</div>
+
+
+<div id="todo" style="position:absolute; overflow:hidden; left:430px; top:0px; z-index:3">
+  <h2>To Do</h2>
+  <table width="300">
+  <tr>
+    <td width="55"><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanauthor %>" ></td>
+    <td><b><font color=901A2A><%= @bookworm.todo %></font></b> </td>
+  </tr>
+  <tr>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanauthor %>" ></td>
+    <td><b><font color=901A2A><%= @bookworm.todo2 %></b></font> </td>
+  </tr></table>
+</div>
+
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:430px; top:270px; z-index:3">
+<h1>I've read:</h1>
+  <table CELLPADDING="4" CELLSPACING="2" WIDTH="580">
+  <tr>
+    <td width="50"><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook %>" ></td>
+    <td WIDTH="120" ><b><font color=901A2A><%= @bookworm.fanbook %></b></font> </td>
+    <td> <i><%= @bookworm.review %></i></td>
+  </tr>
+  <tr>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook %>" ></td>
+    <td><b><font color=901A2A><b><%= @bookworm.fanbook2 %></font></b> </td>
+    <td> <i><%= @bookworm.review2 %></i></td>
+  </tr>
+  <tr>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook %>" ></td>
+    <td><b><font color=901A2A><%= @bookworm.fanbook3 %></font></b> </td>
+    <td> <i><%= @bookworm.review3 %></i></td>
+  </tr></table>
+</div>
+
+
+<div id="rvw" style="position:absolute; overflow:hidden; left:650px; top:290px; z-index:3">
+  <h3>My reviews</h3>
+</div>
+
+
+<p id="notice"><%= notice %></p>
+
+
+<div id="tweet2" style="position:absolute; overflow:hidden; left:750px; top:-10px; z-index:2">
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 230,
+  theme: {
+    shell: {
+      background: '#ddbb99',
+      color: '#773355'
+    },
+    tweets: {
+      background: '#ddccaa',
+      color: '#221111',
+      links: '#901A2A'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('<%= @bookworm.twitter %>').start();
+</script>
+</div>
+<br>
+<%= link_to 'Fill in or edit this page', edit_bookworm_path(@bookworm) %> <p>
+<%= link_to 'See the list of all GuruTapas Bookworms', bookworms_path %>

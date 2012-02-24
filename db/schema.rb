@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221030429) do
+ActiveRecord::Schema.define(:version => 20120223221520) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20111221030429) do
     t.datetime "updated_at"
     t.string   "title"
     t.string   "bkpurchaseurl"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "bookfiles", :force => true do |t|
@@ -36,6 +40,33 @@ ActiveRecord::Schema.define(:version => 20111221030429) do
     t.binary   "filedata"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "bookworms", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "picurl"
+    t.string   "fanbook"
+    t.string   "review"
+    t.string   "fanbook2"
+    t.string   "review2"
+    t.string   "fanbook3"
+    t.string   "review3"
+    t.string   "fanauthor"
+    t.string   "fanauthor2"
+    t.string   "fanauthor3"
+    t.string   "genre"
+    t.string   "genre2"
+    t.string   "genre3"
+    t.string   "todo"
+    t.string   "todo2"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "authorreview"
+    t.string   "authorreview2"
+    t.string   "authorreview3"
   end
 
 end

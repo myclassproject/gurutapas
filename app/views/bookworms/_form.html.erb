@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GuruTapas - Learn a little bit from a variety of gurus</title>
+<title>GuruTapas: Where people gather to discuss books -REGISTER AS A BOOKWORM</title>
 <style type="text/css">
 <!--
 <body 
@@ -274,7 +271,7 @@ function mce_success_cb(resp){
 <div id="txt_1" style="position:absolute; left:0px; top:243px; width:646px; height:34px>
 <p class="Body-P"><span class="Body-C">Participate in LIVE online book clubs, talks, and classes run by the authors themselves!</span></p>
 </div>
-<div style="position:absolute; left:632px; top:926px; width:103px; height:77px;">
+<div style="position:absolute; left:632px; top:1700px; width:103px; height:77px;">
     <img src="http://gurutapas.com/images/logo.png" width="103" height="77" border="0" id="pic_1" name="pic_1" title="" alt=""></div>
 <div id="txt_4" style="position:absolute; left:0px; top:183px; width:557px; height:57px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; overflow:hidden;">
 <p class="Body-P0"><span class="Body-C2">Where people gather to discuss books</span></p>
@@ -306,10 +303,9 @@ function mce_success_cb(resp){
 <p class="Body-P"><span class="Body-C5"><a href="http://gurutapas.com" style="color:#ffffff;text-decoration:none;">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;How it works &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.com/futureofbks.html" style="color:#ffffff;text-decoration:none;" title="Speaker series">Future of Books </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://budgetjustified.com" style="color:#ffffff;text-decoration:none;">Featured Books </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.heroku.com/authors" style="color:#ffffff;text-decoration:none;">Authors</a></span></p>
 </div>
 
-
 <body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
 
-<div style="position:absolute; left:9px; top:938px; width:192px; height:25px;">
+<div style="position:absolute; left:9px; top:1800px; width:192px; height:25px;">
     <div id="frag_21" style="text-align:left;">
     <!--ONESTAT SCRIPTCODE START-->
     <!--
@@ -355,5 +351,22 @@ function mce_success_cb(resp){
     <!--ONESTAT SCRIPTCODE END-->
 </div></div>
 </body>
-  </body>
-</html>
+
+
+<div id="bkwormlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
+
+<%= form_for(@bookworm, :html => { :multipart => true }) do |f| %>
+  <% if @bookworm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookworm.errors.count, "error") %> prohibited this bookworm from being saved:</h2>
+      <ul>
+      <% @bookworm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+</div>
+<% end %>

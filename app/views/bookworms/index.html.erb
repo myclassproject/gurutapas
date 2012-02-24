@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GuruTapas - Learn a little bit from a variety of gurus</title>
+<!-- rails generate scaffold Bookworm name:string email:string picurl:string fanbook:string review:string fanbook2:string review2:string fanbook3:string review3:string fanauthor:string fanauthor2:string fanauthor3:string genre:string genre2:string genre3:string todo:string todo2:string twitter:string facebook:string
+-->
+
+<title>GuruTapas: Where people gather to discuss books -AUTHOR LIST</title>
 <style type="text/css">
 <!--
 <body 
@@ -274,7 +274,7 @@ function mce_success_cb(resp){
 <div id="txt_1" style="position:absolute; left:0px; top:243px; width:646px; height:34px>
 <p class="Body-P"><span class="Body-C">Participate in LIVE online book clubs, talks, and classes run by the authors themselves!</span></p>
 </div>
-<div style="position:absolute; left:632px; top:926px; width:103px; height:77px;">
+<div style="position:absolute; left:632px; top:626px; width:103px; height:77px;">
     <img src="http://gurutapas.com/images/logo.png" width="103" height="77" border="0" id="pic_1" name="pic_1" title="" alt=""></div>
 <div id="txt_4" style="position:absolute; left:0px; top:183px; width:557px; height:57px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; overflow:hidden;">
 <p class="Body-P0"><span class="Body-C2">Where people gather to discuss books</span></p>
@@ -302,9 +302,43 @@ function mce_success_cb(resp){
 <div style="position:absolute; left:0px; top:278px; width:850px; height:37px;">
 <img src= "http://gurutapas.com/images/woodbar.png" alt="" title="" border=0 ></div>
 
-<div id="txt_5" style="position:absolute; left:14px; top:285px; width:728px; height:53px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; overflow:hidden;">
+<div id="txt_5" style="position:absolute; left:14px; top:285px; width:950px; height:53px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; overflow:hidden;">
 <p class="Body-P"><span class="Body-C5"><a href="http://gurutapas.com" style="color:#ffffff;text-decoration:none;">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;How it works &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.com/futureofbks.html" style="color:#ffffff;text-decoration:none;" title="Speaker series">Future of Books </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://budgetjustified.com" style="color:#ffffff;text-decoration:none;">Featured Books </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.heroku.com/authors" style="color:#ffffff;text-decoration:none;">Authors</a></span></p>
 </div>
+
+<div id="authorlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
+<span class="Body-C2"><%= link_to 'Sign up to get a free site - where you talk about YOUR favorite books', new_bookworm_path %></span>
+<p><p>
+<h1>GuruTapas Featured Bookworms</h1>
+
+
+<table>
+  <tr>
+    <th>.</th>
+    <th>Name</th>
+    <th>&nbsp &nbsp</th>
+    <th>Favorite Author</th>
+    <th>&nbsp &nbsp</th>
+    <th>Favorite Book</th>
+  </tr>
+
+<% @bookworms.each do |bookworm| %>
+  <tr>
+    <td> 
+
+<%= link_to(image_tag(bookworm.picurl, :width => '50', :height => '50'), bookworm) %>
+</td>
+    <td><%= link_to bookworm.name, bookworm %></td> 
+    <td></td>
+    <td><%= bookworm.fanauthor %></td>
+    <td></td>
+    <td><%= bookworm.fanbook %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
 
 
 <body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
@@ -354,6 +388,3 @@ function mce_success_cb(resp){
     </td></tr><tr><td align='center'><div style="COLOR:black;display:none;FONT-FAMILY:'Verdana';"><a href="http://www.onestat.com" style="text-decoration:none;">detect click fraud</a><br></div></td></tr></table></div>
     <!--ONESTAT SCRIPTCODE END-->
 </div></div>
-</body>
-  </body>
-</html>

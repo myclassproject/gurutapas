@@ -1,7 +1,47 @@
 <p id="notice"><%= notice %></p>
 
+<body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
+
 <div id="image3" style="position:absolute; overflow:hidden; left:0px; top:70px; z-index:2">
+
+<!-- <%= image_tag @author.avatar.url %>
+<%= image_tag @author.avatar.url(:medium) %>
+<%= image_tag @author.avatar.url(:thumb) %>
+-->
+
 <img src="http://gurutapas.com/images/modevLisa.jpg" alt="" title="" border=0 width=130 height=120><br></div>
+
+<div id="tweet2" style="position:absolute; overflow:hidden; left:750px; top:300px; z-index:2">
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#000000',
+      color: '#ffffff',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('<%= @author.twitter %>').start();
+</script>
+</div>
+
 
 
 <div id="image2" style="position:absolute; overflow:hidden; left:0px; top:195px; z-index:2">
@@ -56,10 +96,5 @@ Book title: <%= @author.title %> <br>
 <%= link_to 'Author list', authors_path %></div>
 
 
-<div id="image9" style="position:absolute; overflow:hidden; left:0px; top:0px; z-index:2">
-<img src="http://gurutapas.com/images/purpleChromeBar.png" alt="" title="" border=0 ><br></div>
-
-<div id="zimage10" style="position:absolute; overflow:hidden; left:400px; top:10px; z-index:2">
-<img src="http://gurutapas.com/images/books.png" alt="" title="" border=0 ><br></div>
 
 

@@ -358,11 +358,10 @@ function mce_success_cb(resp){
 
 
 
-<%= form_for(@author) do |f| %>
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
   <% if @author.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
-
       <ul>
       <% @author.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -370,6 +369,11 @@ function mce_success_cb(resp){
       </ul>
     </div>
   <% end %>
+
+<!--
+
+     <%= f.file_field :avatar %>
+-->
 
 
 
@@ -414,4 +418,3 @@ Paste it into the box below. <br />
 
   </div>
 
-<% end %>
