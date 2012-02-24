@@ -317,13 +317,10 @@ function mce_success_cb(resp){
   </tr>
 
 
-<% i=0
-   @bookworms.each do |bookworm| %>
+<% @bookworms.each do |bookworm| %>
   <tr>
     <td> 
-<% i=i+1 %>
-<a href= <%= i %> > <img src= <%= bookworm.picurl %> border=0 width=50 height=50></a>
-
+   <img src= <%= bookworm.picurl %> border=0 width=50 height=50>
 
 </td>
     <td><%= link_to bookworm.name, bookworm %></td> 
