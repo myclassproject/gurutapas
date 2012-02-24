@@ -33,11 +33,11 @@
   <h2>To Do</h2>
   <table width="300">
   <tr>
-    <td width="55"><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanauthor %>" ></td>
+    <td width="55"><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.todo %>" ></td>
     <td><b><font color=901A2A><%= @bookworm.todo %></font></b> </td>
   </tr>
   <tr>
-    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanauthor %>" ></td>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.todo2 %>" ></td>
     <td><b><font color=901A2A><%= @bookworm.todo2 %></b></font> </td>
   </tr></table>
 </div>
@@ -52,12 +52,12 @@
     <td> <i><%= @bookworm.review %></i></td>
   </tr>
   <tr>
-    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook %>" ></td>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook2 %>" ></td>
     <td><b><font color=901A2A><b><%= @bookworm.fanbook2 %></font></b> </td>
     <td> <i><%= @bookworm.review2 %></i></td>
   </tr>
   <tr>
-    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook %>" ></td>
+    <td><img src="http://gurutapas.com/images/bjBk.jpg" width="50" height="65" title= "<%= @bookworm.fanbook3 %>" ></td>
     <td><b><font color=901A2A><%= @bookworm.fanbook3 %></font></b> </td>
     <td> <i><%= @bookworm.review3 %></i></td>
   </tr></table>
@@ -105,3 +105,4 @@ new TWTR.Widget({
 <br>
 <%= link_to 'Fill in or edit this page', edit_bookworm_path(@bookworm) %> <p>
 <%= link_to 'See the list of all GuruTapas Bookworms', bookworms_path %>
+
