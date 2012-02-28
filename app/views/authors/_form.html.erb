@@ -303,13 +303,10 @@ function mce_success_cb(resp){
 <p class="Body-P"><span class="Body-C5"><a href="http://gurutapas.com" style="color:#ffffff;text-decoration:none;">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;How it works &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.com/futureofbks.html" style="color:#ffffff;text-decoration:none;" title="Speaker series">Future of Books </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://budgetjustified.com" style="color:#ffffff;text-decoration:none;">Featured Books </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gurutapas.heroku.com/authors" style="color:#ffffff;text-decoration:none;">Authors</a></span></p>
 </div>
 
-<div id="authorlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
-<span class="Body-C2"> Fill in form below to be included on the GuruTapas Author List </span>
-<p><p>
 
 <body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
 
-<div style="position:absolute; left:9px; top:938px; width:192px; height:25px;">
+<div style="position:absolute; left:800px; top:1200px; width:192px; height:25px;">
     <div id="frag_21" style="text-align:left;">
     <!--ONESTAT SCRIPTCODE START-->
     <!--
@@ -357,6 +354,7 @@ function mce_success_cb(resp){
 </body>
 
 
+<div id="authorlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
 
 <%= form_for(@author, :html => { :multipart => true }) do |f| %>
   <% if @author.errors.any? %>
@@ -374,48 +372,9 @@ function mce_success_cb(resp){
 
      <%= f.file_field :avatar %>
 -->
+  </div>
+
+  <% end %>
 
 
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    Book Title<br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    Enter the URL for the website where your book can be purchased <br />
-    <%= f.text_field :bkpurchaseurl %>
-  </div>
-  <div class="field">
-    Twitter ID (Without the '@' symbol)<br />
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    Soon we will automate linking your account with Ustream during signup. But at this time, enter the information found in your Ustream dashboard under Channel - Advanced. The code to Embed the live video player will look something like this: 
-<br>	<font face="Courier New"> [iframe src="http://www.ustream.tv/embed/247796" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;">/iframe></font> <br> 
-Paste it into the box below. <br />
-    <%= f.text_field :Ustreamid, :size => 120 %>
-  </div>
-  <div class="field">
-On the same Channel - Advanced page in your Ustream dashboard, click on the Social Stream tab right above the live video player code. You will see code to Embed the social stream, chat, and videos, which will look similar to this: 
-<br>	<font face="Courier New"> [iframe width="468" scrolling="no" height="586" frameborder="0" style="border: 0px none transparent;" src="http://www.ustream.tv/socialstream/247796">/iframe></font><br>
-Paste it into the box below. <br />
-    <%= f.text_field :Ustreamchat, :row => 2, :size => 120 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-
-  <div id="upload">
- <h3> Coming soon: Upload your book as a pdf </h3>
-  </div>
-
-  </div>
-
-<% end %>

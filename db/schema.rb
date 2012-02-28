@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223221520) do
+ActiveRecord::Schema.define(:version => 20120228000357) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,25 @@ ActiveRecord::Schema.define(:version => 20120223221520) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "genre"
+    t.string   "genre2"
+    t.string   "genre3"
+    t.string   "bookpicurl"
+    t.string   "bookpicurl2"
+    t.string   "bookpicurl3"
+    t.string   "authorbook"
+    t.string   "authorbook2"
+    t.string   "authorbook3"
+    t.string   "towrite"
+    t.string   "towrite2"
+    t.string   "soonbkpicurl"
+    t.string   "soonbkpicurl2"
+    t.string   "bookblurb"
+    t.string   "bookblurb2"
+    t.string   "bookblurb3"
+    t.string   "soonbookblurb"
+    t.string   "soonbookblurb2"
+    t.string   "blogurl"
   end
 
   create_table "bookfiles", :force => true do |t|

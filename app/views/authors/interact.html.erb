@@ -1,0 +1,85 @@
+<%= render 'authorform' %>
+
+<div id="blog" style="position:absolute; overflow:hidden; left:400px; top:400px; z-index:3">
+<iframe frameborder="0" width="300" src= "<%= @author.blogurl %>" height="300"></iframe>
+</div>
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:0px; top:200px; z-index:3">
+  <table CELLPADDING="4" CELLSPACING="2" WIDTH="300">
+  <tr>
+    <td></td>  
+    <td><h1>My Books:</h1></td>
+  </tr>
+  <tr>
+    <td width="50"><img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" ></td>
+    <td WIDTH="120" ><b><font color=901A2A><%= @author.authorbook %></b></font> </td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" ></td>
+    <td><b><font color=901A2A><b><%= @author.authorbook2 %></font></b> </td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" ></td>
+    <td><b><font color=901A2A><%= @author.authorbook3 %></font></b> </td>
+  </tr></table>
+
+  <br><h1>My fans:</h1>
+
+
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 230,
+  theme: {
+    shell: {
+      background: '#ddbb99',
+      color: '#773355'
+    },
+    tweets: {
+      background: '#ddccaa',
+      color: '#221111',
+      links: '#901A2A'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('<%= @author.twitter %>').start();
+</script>
+</div>
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:380px; top:50px; z-index:3">
+  <%= @author.Ustreamid.html_safe %>
+<br>
+  <%= @author.Ustreamchat.html_safe %>
+</div>
+
+
+<% 
+=begin %>
+<%= form_for(@bookworm, :html => { :multipart => true }) do |bkworm| %>
+
+  <table width = "410">
+  <tr>
+    <td width="50"><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bkworm.name %>" ></td>
+    <td width="90"><font color=773355><b><%= bkworm.name %> </b></td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bkworm.name %>" ></td>
+    <td><font color=773355><b><%= bkworm.name %></b> </td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bkworm.name %>" ></td>
+    <td><font color=773355><b><%= bkworm.name %></b> </td>
+  </tr></table>
+</div>
+<% end %>
+<% 
+=end %>
+

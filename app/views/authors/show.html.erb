@@ -1,100 +1,89 @@
-<p id="notice"><%= notice %></p>
+<!-- // rails generate migration add_info_to_authors genre:string genre2:string genre3:string bookpicurl:string bookpicurl2:string bookpicurl3:string authorbook:string authorbook2:string authorbook3:string towrite:string towrite2:string soonbkpicurl:string soonbkpicurl2:string bookblurb:string bookblurb2:string bookblurb3:string soonbookblurb:string soonbookblurb2:string
+  add_blog_to_authors blogurl:string 
 
-<body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
+bundle exec rake db:migrate
+-->
 
-<div id="image3" style="position:absolute; overflow:hidden; left:0px; top:70px; z-index:2">
+<%= render 'authorform' %>
+
+<%= link_to 'Fill in or edit this page', edit_author_path(@author) %> <p>
+<%= link_to 'See the list of all GuruTapas Authors', authors_path %>
+
 
 <!-- <%= image_tag @author.avatar.url %>
 <%= image_tag @author.avatar.url(:medium) %>
 <%= image_tag @author.avatar.url(:thumb) %>
 -->
 
-<img src="http://gurutapas.com/images/modevLisa.jpg" alt="" title="" border=0 width=130 height=120><br></div>
+<div id="name" style="position:absolute; left:170px; top:70px; width:220px">
+  &nbsp&nbsp&nbsp&nbsp<%= @author.genre %><p>
+  &nbsp&nbsp&nbsp&nbsp<%= @author.genre2 %><p>
+  &nbsp&nbsp&nbsp&nbsp<%= @author.genre3 %>
+</div>
 
-<div id="tweet2" style="position:absolute; overflow:hidden; left:750px; top:300px; z-index:2">
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 30000,
-  width: 250,
-  height: 300,
-  theme: {
-    shell: {
-      background: '#333333',
-      color: '#ffffff'
-    },
-    tweets: {
-      background: '#000000',
-      color: '#ffffff',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: false,
-    behavior: 'all'
-  }
-}).render().setUser('<%= @author.twitter %>').start();
-</script>
+
+<div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:270px; z-index:3">
+
+  <h2>Writings in Progress</h2>
+  <table width="350">
+  <tr>
+    <td width="100"><b><font color=901A2A><%= @author.towrite %></font></b> </td>
+    <td><i><%= @author.soonbookblurb %></i>
+  </tr>
+  <tr>
+    <td><b><font color=901A2A><%= @author.towrite2 %></font></b> </td>
+    <td><i><%= @author.soonbookblurb2 %></i>
+  </tr></table><p>
+
+
+  <br><h1>My fans:</h1>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:380px; top:50px; z-index:3">
+  <table CELLPADDING="4" CELLSPACING="2" WIDTH="620">
+  <tr>
+    <td></td>    <td></td>
+    <td><h1>My Books:</h1></td>
+  </tr>
+  <tr>
+    <td width="50"><img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" ></td>
+    <td WIDTH="120" ><b><font color=901A2A><%= @author.authorbook %></b></font> </td>
+    <td> <i><%= @author.bookblurb %></i></td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" ></td>
+    <td><b><font color=901A2A><b><%= @author.authorbook2 %></font></b> </td>
+    <td> <i><%= @author.bookblurb2 %></i></td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" ></td>
+    <td><b><font color=901A2A><%= @author.authorbook3 %></font></b> </td>
+    <td> <i><%= @author.bookblurb3 %></i></td>
+  </tr></table>
+
 </div>
 
 
 
-<div id="image2" style="position:absolute; overflow:hidden; left:0px; top:195px; z-index:2">
-<b>Live audience: </b><p>
+<% 
+=begin %>
 
-<a href= "http://gurutapas.com/images/bengal.html" target=_blank, toolbar=no, width=500, height=500, location=no, directories=no,status=no,menubar=no,scrollbars=yes,resizable=no>  <img src="http://gurutapas.com/images/bengal.png" border=0> </a> 
-<br>
-<a href= "http://gurutapas.com/images/dane.html">  <img src="http://gurutapas.com/images/dane.png" border=0></a> 
-<br>
-<a href= "http://gurutapas.com/images/spaz.html">  <img src="http://gurutapas.com/images/spaz.png" border=0></a> 
-<br>
-<a href= "http://gurutapas.com/images/ross.html">  <img src="http://gurutapas.com/images/ross.png" border=0></a> 
-<br>
-<a href= "http://gurutapas.com/images/susan.html">  <img src="http://gurutapas.com/images/susan.png" border=0></a> 
-<br>
-<a href= "http://gurutapas.com/images/gareth.html">  <img src="http://gurutapas.com/images/gareth.png" border=0></a> 
-<br>
+<%= form_for(@bookworm, :html => { :multipart => true }) do |bkworm| %>
+<% 
+=end %>
 
+  <table width = "410">
+  <tr>
+    <td width="50"><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= @bookworm.name %>" ></td>
+    <td width="90"><font color=773355><b><%= bkworm.name %> </b></td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bookworm.name %>" ></td>
+    <td><font color=773355><b><%= bookworm.name %></b> </td>
+  </tr>
+    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bookworm.name %>" ></td>
+    <td><font color=773355><b><%= bookworm.name %></b> </td>
+  </tr></table>
 </div>
-
-<div id="image4" style="position:absolute; overflow:hidden; left:160px; top:70px; z-index:2">
-  <h1><%= @author.name %></h1> </div>  
-
-<div id="image7" style="position:absolute; overflow:hidden; left:400px; top:80px; z-index:2">
- <a href= <%= "http://twitter.com/" << @author.twitter %> > <img src="http://gurutapas.com/images/twitter.png" border=0></a> <br>
-Book title: <%= @author.title %> <br>
-<a href= <%= @author.bkpurchaseurl %> > Purchase book </a> 
-</div>
-<div id="image8" style="position:absolute; overflow:hidden; left:440px; top:90px; z-index:2"> @<%= link_to @author.twitter,  "http://twitter.com/" << @author.twitter %>
-</div>
-
-
-<div id="image5" style="position:absolute; overflow:hidden; left:160px; top:210px; z-index:2">
-  <%= @author.Ustreamid.html_safe %>
-<br>
-  <%= @author.Ustreamchat.html_safe %></div>
-
-
-<div id="image6" style="position:absolute; overflow:hidden; left:820px; top:70px; z-index:2">
-<b>Reading List</b><p>
-<img src="http://gurutapas.com/images/bjBk.jpg" alt="" title="" border=0 width=80 height=110><br></div>
-
-<div style="position:absolute; left:800px; top:220px; width:99px; height:26px;">
-    <div id="frag_14" style="text-align:left;">
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="NHEGESZKRZJVW">
-    <input type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    <img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>
-    </div>
-<%= link_to 'Author list', authors_path %></div>
-
-
-
-

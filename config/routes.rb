@@ -10,6 +10,25 @@ Gurutapas::Application.routes.draw do
   resources :bookfile
   resources :authors
 
+
+  resources :authors do
+    resources :bookworms
+    resources :bookpdfs
+  end
+
+  resources :authors do
+    member do
+      get 'blog'
+    end
+  end
+
+  resources :authors do
+    member do
+      get 'interact'
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,30 @@
+<%= render 'authorform' %>
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:0px; top:200px; z-index:3">
+  <table CELLPADDING="4" CELLSPACING="2" WIDTH="300">
+  <tr>
+    <td></td>  
+    <td><h1>My Books:</h1></td>
+  </tr>
+  <tr>
+    <td width="50"><img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" ></td>
+    <td WIDTH="120" ><b><font color=901A2A><%= @author.authorbook %></b></font> </td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" ></td>
+    <td><b><font color=901A2A><b><%= @author.authorbook2 %></font></b> </td>
+  </tr>
+  <tr>
+    <td><img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" ></td>
+    <td><b><font color=901A2A><%= @author.authorbook3 %></font></b> </td>
+  </tr></table>
+
+  <br><h1>My fans:</h1>
+</div>
+
+
+
+<div id="blog" style="position:absolute; overflow:hidden; left:300px; top:100px; z-index:3">
+<iframe frameborder="0" width="700" src= "<%= @author.blogurl %>" height="1000"></iframe>
+</div>
+

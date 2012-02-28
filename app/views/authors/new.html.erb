@@ -1,5 +1,43 @@
+<!--
+<body 
+a:link {color: #2c3651;}
+a:visited {color: #1f5b8b;}
+a:hover {color: #2c3651;}
+a:active {color: #2c3651;}
+
+.Body-C2        {
+        font-family:"Gabriola", serif; font-weight:700; font-size:32.0px; 
+        line-height:1.84em; color:#64140f; 
+        }
+-->
 
 <%= render 'form' %>
 
+
+<div id="signup" style="position:absolute; overflow:hidden; 
+left:0px; top:330px; z-index:3">
+
+<span class="Body-C2"> Sign up to be included on the GuruTapas Author List </span>
+
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
+
+<table >
+  <tr>
+    <td >Full Name:</td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %>:</td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+</table>
+
+<p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', authors_path %>
+
 	

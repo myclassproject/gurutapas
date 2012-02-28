@@ -9,4 +9,6 @@ class Bookpdf < ActiveRecord::Base
     File.open(path, "wb") { |f| f.write(upload['bookpdf'].read) }
   end
 
+  belongs_to :author
+
 end

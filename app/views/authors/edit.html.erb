@@ -1,4 +1,132 @@
-<h1>Editing author</h1>
+<!--
+<body 
+a:link {color: #2c3651;}
+a:visited {color: #1f5b8b;}
+a:hover {color: #2c3651;}
+a:active {color: #2c3651;}
+
+.Body-C2        {
+        font-family:"Gabriola", serif; font-weight:700; font-size:32.0px; 
+        line-height:1.84em; color:#64140f; 
+        }
+-->
+
+<%= render 'form' %>
+
+
+<div id="signup" style="position:absolute; overflow:hidden; 
+left:0px; top:330px; z-index:3">
+
+<span class="Body-C2"> Fill in the details for your GuruTapas Author web site </span>
+
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
+
+  <div class="field">
+    <%= f.submit %><p>
+
+URL to your blog <br>
+    <%= f.text_field :blogurl, :size => 80 %><p>
+
+	What are the three genres most closely related to your writing?<br>
+    <%= f.text_field :genre %>
+    <%= f.text_field :genre2 %>
+    <%= f.text_field :genre3 %><p>
+
+Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at Photobucket. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
+    <%= f.text_field :title, :size => 80 %><p>
+
+<h2>Your latest book</h2>
+
+Title of your latest book.<br>
+    <%= f.text_field :authorbook, :size => 80 %><p>
+
+URL for a picture of that book's jacket.<br>
+    <%= f.text_field :bookpicurl, :size => 80 %><p>
+
+Paste a paragraph about your book <br />
+    <%= f.text_area :bookblurb, :cols => 62, :rows => 6 %><p>
+
+URL for directing customers to the website where your book can be purchased <br />
+    <%= f.text_field :bkpurchaseurl, :size => 80 %><p>
+
+
+<h2>Your Previous Book</h2>
+
+Title for one of your previous books.<br>
+    <%= f.text_field :authorbook2, :size => 80 %><p>
+
+URL for a picture of that book's jacket.<br>
+    <%= f.text_field :bookpicurl2, :size => 80 %><p>
+
+Paste a paragraph about your book <br />
+    <%= f.text_area :bookblurb2, :cols => 62, :rows => 6 %><p>
+
+URL for directing customers to the website where your book can be purchased <br />
+    <%= f.text_field :soonbkpicurl, :size => 80 %><p>
+
+<p>
+
+
+<h2>Your First Book</h2>
+
+Title for one of your previous books.<br>
+    <%= f.text_field :authorbook3, :size => 80 %><p>
+
+URL for a picture of that book's jacket.<br>
+    <%= f.text_field :bookpicurl3, :size => 80 %><p>
+
+Paste a paragraph about your book <br />
+    <%= f.text_area :bookblurb3, :cols => 62, :rows => 6 %><p>
+
+URL for the website where your book can be purchased <br />
+    <%= f.text_field :soonbkpicurl2, :size => 80 %><p>
+
+<p>
+
+<h2>Books In Progress</h2>
+
+Title of a book you're still writing.<br>
+    <%= f.text_field :towrite, :size => 80 %><p>
+
+One sentence description of the book.<br>
+    <%= f.text_area :soonbookblurb, :cols => 62, :rows => 3 %><p>
+
+
+Title or description of a book you're developing a concept for.<br>
+    <%= f.text_field :towrite2, :size => 80 %><p>
+
+One sentence about the book's concept.<br>
+    <%= f.text_area :soonbookblurb2, :cols => 62, :rows => 3 %><p>
+
+<p>
+
+
+
+  </div>
+
+  <div class="field">
+    Twitter ID (Without the '@' symbol)<br />
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    Soon we will automate linking your account with Ustream during signup. But at this time, enter the information found in your Ustream dashboard under Channel - Advanced. The code to Embed the live video player will look something like this: 
+<br>	<font face="Courier New"> [iframe src="http://www.ustream.tv/embed/247796" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;">/iframe></font> <br> 
+Paste it into the box below. <br />
+    <%= f.text_area :Ustreamid, :cols => 62, :rows => 3 %>
+  </div>
+  <div class="field">
+On the same Channel - Advanced page in your Ustream dashboard, click on the Social Stream tab right above the live video player code. You will see code to Embed the social stream, chat, and videos, which will look similar to this: 
+<br>	<font face="Courier New"> [iframe width="468" scrolling="no" height="586" frameborder="0" style="border: 0px none transparent;" src="http://www.ustream.tv/socialstream/247796">/iframe></font><br>
+Paste it into the box below. <br />
+    <%= f.text_area :Ustreamchat, :cols => 62, :rows => 3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+
+  <div id="upload">
+ <h3> Coming soon: Upload your book as a pdf </h3>
+  </div>
+<% end %>
 
 
 <%= link_to 'Show', @author %> |

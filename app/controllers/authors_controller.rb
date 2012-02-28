@@ -21,6 +21,30 @@ class AuthorsController < ApplicationController
     end
   end
 
+  # GET /authors/1
+  # GET /authors/1.json
+  def blog
+    @author = Author.find(params[:id])
+
+    respond_to do |format|
+      format.html # blog.html.erb
+      format.json { render json: @author }
+    end
+  end
+
+
+  # GET /authors/1
+  # GET /authors/1.json
+  def interact
+    @author = Author.find(params[:id])
+
+    respond_to do |format|
+      format.html # interact.html.erb
+      format.json { render json: @author }
+    end
+  end
+
+
   # GET /authors/new
   # GET /authors/new.json
   def new
@@ -31,6 +55,7 @@ class AuthorsController < ApplicationController
       format.json { render json: @author }
     end
   end
+
 
   # GET /authors/1/edit
   def edit
