@@ -72,8 +72,6 @@ bundle exec rake db:migrate
 =begin %>
 
 <%= form_for(@bookworm, :html => { :multipart => true }) do |bkworm| %>
-<% 
-=end %>
 
   <table width = "410">
   <tr>
@@ -87,3 +85,5 @@ bundle exec rake db:migrate
     <td><font color=773355><b><%= bookworm.name %></b> </td>
   </tr></table>
 </div>
+<% 
+=end %>
