@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= render 'form' %>
+
+
+<div id="calendar" style="position:absolute; left:0px; top:340px; width:900px; height:757px;" >
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%= @event.end_at %>
+</p>
+
+</div>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

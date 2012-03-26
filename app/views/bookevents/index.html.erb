@@ -1,0 +1,27 @@
+<h1>Listing bookevents</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start at</th>
+    <th>End at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookevents.each do |bookevent| %>
+  <tr>
+    <td><%= bookevent.name %></td>
+    <td><%= bookevent.start_at %></td>
+    <td><%= bookevent.end_at %></td>
+    <td><%= link_to 'Show', bookevent %></td>
+    <td><%= link_to 'Edit', edit_bookevent_path(bookevent) %></td>
+    <td><%= link_to 'Destroy', bookevent, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bookevent', new_bookevent_path %>
