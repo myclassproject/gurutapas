@@ -21,6 +21,8 @@ left:0px; top:330px; z-index:3">
 
 <%= form_for(@author, :html => { :multipart => true }) do |f| %>
 
+Save often: if an entry is rejected, newly-entered information won't be retained. We're working to fix that. After saving, you will be directed to your new Author page. You may come back to this page for continue to enter your information.
+
   <div class="field">
     <%= f.submit %><p>
 
@@ -35,6 +37,9 @@ URL to your blog <br>
 Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at Photobucket. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
     <%= f.text_field :title, :size => 80 %><p>
 
+  <div class="field">
+    <%= f.submit %>
+
 <h2>Your latest book</h2>
 
 Title of your latest book.<br>
@@ -43,12 +48,15 @@ Title of your latest book.<br>
 URL for a picture of that book's jacket.<br>
     <%= f.text_field :bookpicurl, :size => 80 %><p>
 
-Paste a paragraph about your book <br />
-    <%= f.text_area :bookblurb, :cols => 62, :rows => 6 %><p>
+Paste a SHORT paragraph about your book <br />
+(This is the entry that may give the most trouble. It was accidentally set to accept only 500 characters. We'll fix this soon.) <br>
+    <%= f.text_area :bookblurb, :cols => 62, :rows => 5 %><p>
 
 URL for directing customers to the website where your book can be purchased <br />
     <%= f.text_field :bkpurchaseurl, :size => 80 %><p>
 
+  <div class="field">
+    <%= f.submit %><p>
 
 <h2>Your Previous Book</h2>
 
@@ -58,14 +66,14 @@ Title for one of your previous books.<br>
 URL for a picture of that book's jacket.<br>
     <%= f.text_field :bookpicurl2, :size => 80 %><p>
 
-Paste a paragraph about your book <br />
+Paste a SHORT paragraph about your book <br />
     <%= f.text_area :bookblurb2, :cols => 62, :rows => 6 %><p>
 
 URL for directing customers to the website where your book can be purchased <br />
     <%= f.text_field :soonbkpicurl, :size => 80 %><p>
 
-<p>
-
+  <div class="field">
+    <%= f.submit %><p>
 
 <h2>Your First Book</h2>
 
@@ -75,13 +83,15 @@ Title for one of your previous books.<br>
 URL for a picture of that book's jacket.<br>
     <%= f.text_field :bookpicurl3, :size => 80 %><p>
 
-Paste a paragraph about your book <br />
+Paste a SHORT paragraph about your book <br />
     <%= f.text_area :bookblurb3, :cols => 62, :rows => 6 %><p>
 
 URL for the website where your book can be purchased <br />
     <%= f.text_field :soonbkpicurl2, :size => 80 %><p>
 
-<p>
+  <div class="field">
+    <%= f.submit %><p>
+
 
 <h2>Books In Progress</h2>
 
@@ -100,7 +110,8 @@ One sentence about the book's concept.<br>
 
 <p>
 
-
+  <div class="field">
+    <%= f.submit %><p>
 
   </div>
 
