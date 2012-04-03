@@ -1,4 +1,6 @@
+<% @title="GuruTapas: Appetizers of Knowledge - Upcoming Book Events in DC" %>
 <style type="text/css">
+<head>
 <!--
 <body 
 a:link {color: #2c3651;}
@@ -369,29 +371,25 @@ function mce_success_cb(resp){
 
 <h1>Listing of events</h1>
 
-<table>
+<table width="900">
   <tr>
-    <th>Name</th>
-    <th>Start at</th>
-    <th>End at</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Event & Info/RSVP</th>
+    <th>When</th>
+    <th>Where</th>
   </tr>
 
-<% @events.each do |event| %>
+<% @events.sort_by{|t| t.start_at}.each do |event| %>
+  <% if event.start_at >= Time.now %>
   <tr>
-    <td><%= event.name %></td>
-    <td><%= event.start_at %></td>
-    <td><%= event.end_at %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+    <td width="200"><%= link_to event.name, event %></td>
+    <td width="200"><%= event.start_at %></td>
+    <td><%= event.address %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Event', new_event_path %>
-</div>
+</div>	

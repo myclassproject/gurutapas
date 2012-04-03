@@ -1,29 +1,23 @@
+<% @title="GuruTapas: Appetizers of Knowledge - Upcoming Book Event in DC" %>
 <!--rails generate migration add_desc_to_events desc:text address:string rsvp:string
 -->
-
 <p id="notice"><%= notice %></p>
-
-
 <%= render 'form' %>
-
 
 <div id="calendar" style="position:absolute; left:0px; top:340px; width:900px; height:757px;" >
 
 <p>
-  <b>Name:</b>
+  <b>Event title:</b>
   <%= @event.name %>
 </p>
-
 <p>
-  <b>Start at:</b>
+  <b>Start time:</b>
   <%= @event.start_at %>
 </p>
-
 <p>
-  <b>End at:</b>
+  <b>End time:</b>
   <%= @event.end_at %>
 </p>
-
 <p>
   <b>Event description:</b>
   <%= @event.desc %>
@@ -32,12 +26,8 @@
   <b>Where:</b>
   <%= @event.address %>
 </p>
-<p>
-  <b>Sign up:</b>
-  <%= @event.rsvp %>
+<p>	
+  <%= link_to 'RSVP here', @event.rsvp %>
 </p>
-
 </div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

@@ -1,8 +1,25 @@
+<% @title="GuruTapas: Appetizers of Knowledge - author " + @author.name %>
+
 <!-- // rails generate migration add_info_to_authors genre:string genre2:string genre3:string bookpicurl:string bookpicurl2:string bookpicurl3:string authorbook:string authorbook2:string authorbook3:string towrite:string towrite2:string soonbkpicurl:string soonbkpicurl2:string bookblurb:string bookblurb2:string bookblurb3:string soonbookblurb:string soonbookblurb2:string
   add_blog_to_authors blogurl:string 
 
 bundle exec rake db:migrate
 -->
+
+<style type="text/css">
+
+<body 
+a:link {color: #901A2A; text-decoration: none}}
+a:visited {color: #901A2A;}
+a:hover {color: #FFFFFF;}
+a:active {color: #901A2A;}
+.Body-G        {
+        font-family:"Verdana", sans-serif; font-size:12.0px; 
+        line-height:1.0em; color:#901A2A; font-weight:"bold";
+        }
+
+</style>
+</head>
 
 <%= render 'authorform' %>
 
@@ -49,18 +66,18 @@ bundle exec rake db:migrate
     <td><h1>My Books:</h1></td>
   </tr>
   <tr>
-    <td width="50"><img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" ></td>
-    <td WIDTH="120" ><b><font color=901A2A><%= @author.authorbook %></b></font> </td>
+    <td width="50"><a href= <%= @author.bkpurchaseurl %>> <img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" target="_blank"></a></td>
+    <td WIDTH="120"><b><a href= <%= @author.bkpurchaseurl %> style="text-decoration: none", target="_blank"> <%= @author.authorbook %></b> </a> </td>
     <td> <i><%= @author.bookblurb %></i></td>
   </tr>
   <tr>
-    <td><img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" ></td>
-    <td><b><font color=901A2A><b><%= @author.authorbook2 %></font></b> </td>
+    <td><a href= <%= @author.soonbkpicurl %>> <img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" target="_blank"></a></td>
+    <td><b><a href= <%= @author.soonbkpicurl %> style="text-decoration: none", target="_blank"><%= @author.authorbook2 %></b></a> </td>
     <td> <i><%= @author.bookblurb2 %></i></td>
   </tr>
   <tr>
-    <td><img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" ></td>
-    <td><b><font color=901A2A><%= @author.authorbook3 %></font></b> </td>
+    <td><a href= <%= @author.soonbkpicurl2 %>> <img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" target="_blank"></a></td>
+    <td><b><a href= <%= @author.soonbkpicurl2 %> style="text-decoration: none", target="_blank"><%= @author.authorbook2 %></b></a> </td>
     <td> <i><%= @author.bookblurb3 %></i></td>
   </tr></table>
 
@@ -87,3 +104,4 @@ bundle exec rake db:migrate
 </div>
 <% 
 =end %>
+</body>
