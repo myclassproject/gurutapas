@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330195305) do
+ActiveRecord::Schema.define(:version => 20120419220647) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20120330195305) do
     t.text     "desc"
     t.string   "address"
     t.string   "rsvp"
+    t.string   "personname"
+    t.string   "email"
   end
 
 end

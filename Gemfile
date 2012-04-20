@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'carrierwave'
+
 gem 'rails', '3.1.0'
 
 gem 'event-calendar', :require => 'event_calendar'

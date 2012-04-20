@@ -35,7 +35,7 @@ URL to your blog <br>
     <%= f.text_field :genre2 %>
     <%= f.text_field :genre3 %><p>
 
-Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at Photobucket. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
+Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at <a href = "http://photobucket.com" target="_blank"> Photobucket</a>. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
     <%= f.text_field :title, :size => 80 %><p>
 
   <div class="field">
@@ -49,8 +49,7 @@ Title of your latest book.<br>
 URL for a picture of that book's jacket.<br>
     <%= f.text_field :bookpicurl, :size => 80 %><p>
 
-Paste a SHORT paragraph about your book <br />
-(This is the entry that may give the most trouble. It was accidentally set to accept only 500 characters. We'll fix this soon.) <br>
+Paste a SHORT paragraph (500 characters max) about your book <br />
     <%= f.text_area :bookblurb, :cols => 62, :rows => 5 %><p>
 
 URL for directing customers to the website where your book can be purchased <br />

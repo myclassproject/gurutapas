@@ -9,42 +9,67 @@ left:0px; top:330px; z-index:3">
 
 <%= form_for(@bookworm, :html => { :multipart => true }) do |f| %>
 
+Save often: if an entry is rejected, newly-entered information won't be retained. We're working to fix that. After saving, you will be directed to your new Bookworm page. You may come back to this page for continue to enter your information.
+
+<h2>Your profile</h2>
+
 Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at <a href = "http://photobucket.com" target="_blank"> Photobucket</a>. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
     <%= f.text_field :picurl, :size => 80 %><p>
+
+Twitter handle (do not enter the '@' symbol)
+    <%= f.text_field :twitter %><p>
+
+Facebook URL
+    <%= f.text_field :facebook %><p>
+
+  <div class="field">
+    <%= f.submit %><p>
+
+<h2>Your book reviews</h2>
 
 What's the title of your favorite book?<br>
     <%= f.text_field :fanbook, :size => 80 %><p>
 
-What did you think of that book?<br>
-    <%= f.text_field :review, :size => 140 %><p>
+Enter a SHORT paragraph (500 characters max) of what you thought of that book.<br>
+    <%= f.text_area :review, :cols => 62, :rows => 5 %><p>
 
 What's your second favorite book?<br>
     <%= f.text_field :fanbook2, :size => 80 %><p>
 
-What did you think of that book?<br>
-    <%= f.text_field :review2, :size => 140 %><p>
+Enter a SHORT paragraph of what you thought of that book.<br>
+    <%= f.text_area :review2, :cols => 62, :rows => 5 %><p>
 
 What's your third favorite book?<br>
     <%= f.text_field :fanbook3, :size => 80 %><p>
 
-What did you think of that book?<br>
-    <%= f.text_field :review3, :size => 140 %><p>
+Enter a SHORT paragraph of what you thought of that book.<br>
+    <%= f.text_area :review3, :cols => 62, :rows => 5 %><p>
+
+  <div class="field">
+    <%= f.submit %><p>
+
+<h2>Your author reviews</h2>
 
 Who is your favorite author?<br>
     <%= f.text_field :fanauthor %><p>
-What do you think of that author?<br>
-    <%= f.text_field :authorreview, :size => 140 %><p>
+Enter a SHORT paragraph of what you think of that author.<br>
+    <%= f.text_area :authorreview, :cols => 62, :rows => 5 %><p>
 
 Who is your second favorite author?<br>
     <%= f.text_field :fanauthor2 %><p>
-What do you think of that author?<br>
-    <%= f.text_field :authorreview2, :size => 140 %><p>
+Enter a SHORT paragraph of what you think of that author.<br>
+    <%= f.text_area :authorreview2, :cols => 62, :rows => 5 %><p>
 
 Who is your third favorite author?<br>
     <%= f.text_field :fanauthor3 %><p>
-What do you think of that author?<br>
-    <%= f.text_field :authorreview3, :size => 140 %><p>
+Enter a SHORT paragraph of what you think of that author.<br>
+    <%= f.text_area :authorreview3, :cols => 62, :rows => 5 %><p>
 
+  <div class="field">
+    <%= f.submit %><p>
+
+
+<h2>Your genres & To Do list</h2>
 
 Of what genre are most of the books you read? e.g. Thriller, Mystery, Romance, Biography, etc.<br>
     <%= f.text_field :genre %><p>
@@ -60,12 +85,6 @@ What's the next book you plan to read?<br>
 
 What other book do you plan to read soon?<br>
     <%= f.text_field :todo2, :size => 60 %><p>
-
-Twitter handle (do not enter the '@' symbol)
-    <%= f.text_field :twitter %><p>
-
-Facebook URL
-    <%= f.text_field :facebook %><p>
 
   <div class="actions">
     <%= f.submit %>
