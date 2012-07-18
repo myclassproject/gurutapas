@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
- attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :bookpicurl, :bookpicurl2, :bookpicurl3, :authorbook, :authorbook2, :authorbook3, :towrite, :towrite2, :soonbkpicurl, :soonbkpicurl2, :bookblurb, :bookblurb2, :bookblurb3, :soonbookblurb, :soonbookblurb2, :blogurl, :bkpurchaseurl
+ attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :bookpicurl, :bookpicurl2, :bookpicurl3, :authorbook, :authorbook2, :authorbook3, :towrite, :towrite2, :soonbkpicurl, :soonbkpicurl2, :bookblurb, :bookblurb2, :bookblurb3, :soonbookblurb, :soonbookblurb2, :blogurl, :bkpurchaseurl, :title
 
   has_secure_password
 
