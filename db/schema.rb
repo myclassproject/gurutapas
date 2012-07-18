@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419220647) do
+ActiveRecord::Schema.define(:version => 20120716032451) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -46,7 +46,11 @@ ActiveRecord::Schema.define(:version => 20120419220647) do
     t.string   "soonbookblurb"
     t.string   "soonbookblurb2"
     t.string   "blogurl"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "authors", ["remember_token"], :name => "index_authors_on_remember_token"
 
   create_table "bookevents", :force => true do |t|
     t.string   "name"
@@ -94,7 +98,11 @@ ActiveRecord::Schema.define(:version => 20120419220647) do
     t.string   "authorreview"
     t.string   "authorreview2"
     t.string   "authorreview3"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "bookworms", ["remember_token"], :name => "index_bookworms_on_remember_token"
 
   create_table "events", :force => true do |t|
     t.string   "name"

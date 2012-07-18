@@ -6,8 +6,12 @@ Gurutapas::Application.routes.draw do
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   resources :bookworms
-
   resources :bookpdfs
+
+  resources :sessions, only: [:create, :destroy, :new]
+  match '/signup',  to: 'authors#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   get "bookfile/show"
 

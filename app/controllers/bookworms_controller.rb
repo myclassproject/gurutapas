@@ -1,4 +1,6 @@
 class BookwormsController < ApplicationController
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update]
   # GET /bookworms
   # GET /bookworms.json
   def index
@@ -34,7 +36,7 @@ class BookwormsController < ApplicationController
 
   # GET /bookworms/1/edit
   def edit
-    @bookworm = Bookworm.find(params[:id])
+#    @bookworm = Bookworm.find(params[:id])
   end
 
   # POST /bookworms
@@ -42,31 +44,29 @@ class BookwormsController < ApplicationController
   def create
     @bookworm = Bookworm.new(params[:bookworm])
 
-    respond_to do |format|
+#    respond_to do |format|
       if @bookworm.save
-        format.html { redirect_to @bookworm, notice: 'Bookworm was successfully created.' }
-        format.json { render json: @bookworm, status: :created, location: @bookworm }
+        sign_in @bookworm
+        redirect_to @bookworm
+#        format.html { redirect_to @bookworm, notice: 'Bookworm was successfully created.' }
+#        format.json { render json: @bookworm, status: :created, location: @bookworm }
       else
-        format.html { render action: "new" }
-        format.json { render json: @bookworm.errors, status: :unprocessable_entity }
+        render 'new'
+#        format.html { render action: "new" }
+#        format.json { render json: @bookworm.errors, status: :unprocessable_entity }
       end
-    end
+#    end
   end
 
   # PUT /bookworms/1
   # PUT /bookworms/1.json
   def update
-    @bookworm = Bookworm.find(params[:id])
-
-    respond_to do |format|
       if @bookworm.update_attributes(params[:bookworm])
-        format.html { redirect_to @bookworm, notice: 'Bookworm was successfully updated.' }
-        format.json { head :ok }
+        sign_in @bookworm
+        redirect_to @bookworm
       else
-        format.html { render action: "edit" }
-        format.json { render json: @bookworm.errors, status: :unprocessable_entity }
+        render 'edit'
       end
-    end
   end
 
   # DELETE /bookworms/1
@@ -80,4 +80,17 @@ class BookwormsController < ApplicationController
       format.json { head :ok }
     end
   end
+  private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @bookworm = Bookworm.find(params[:id])
+      redirect_to(signin_path) unless current_user?(@bookworm)
+    end
 end

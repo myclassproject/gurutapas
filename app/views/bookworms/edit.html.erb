@@ -9,6 +9,17 @@ left:0px; top:330px; z-index:3">
 
 <%= form_for(@bookworm, :html => { :multipart => true }) do |f| %>
 
+<table>
+  <tr>
+    <td> Password:</td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td>Password Confirmation:</td>
+    <td><%= f.password_field :password_confirmation %></td>
+  </tr>
+</table>
+
 Save often: if an entry is rejected, newly-entered information won't be retained. We're working to fix that. After saving, you will be directed to your new Bookworm page. You may come back to this page for continue to enter your information.
 
 <h2>Your profile</h2>

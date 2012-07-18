@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update]
+  before_filter :correct_user,   only: [:edit, :update]
   # GET /authors
   # GET /authors.json
   def index
@@ -59,39 +61,45 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
-    @author = Author.find(params[:id])
+#    @author = Author.find(params[:id])
   end
 
-  # POST /authors
-  # POST /authors.json
+  # POST /authors       66
+  # POST /authors.json  67
   def create
     @author = Author.new(params[:author])
 
-    respond_to do |format|
+#    respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
-        format.json { render json: @author, status: :created, location: @author }
+        sign_in @author
+        redirect_to @author
+#        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+#        format.json { render json: @author, status: :created, location: @author }
       else
-        format.html { render action: "new" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
+        render 'new'
+#        format.html { render action: "new" }
+#        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
-    end
+#    end
   end
 
   # PUT /authors/1
   # PUT /authors/1.json
   def update
-    @author = Author.find(params[:id])
+#    @author = Author.find(params[:id])
 
-    respond_to do |format|
+#    respond_to do |format|
       if @author.update_attributes(params[:author])
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
-        format.json { head :ok }
+        sign_in @author
+        redirect_to @author
+#        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
+#        format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
+        render 'edit'
+#        format.html { render action: "edit" }
+#        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
-    end
+#    end
   end
 
   # DELETE /authors/1
@@ -105,4 +113,19 @@ class AuthorsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+  private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @author = Author.find(params[:id])
+      redirect_to(signin_path) unless current_user?(@author)
+    end
 end

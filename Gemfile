@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'carrierwave'
 
 gem 'rails', '3.1.0'
+gem 'bcrypt-ruby', '3.0.1'
 
 gem 'event-calendar', :require => 'event_calendar'
 gem "paperclip", "~> 2.0"

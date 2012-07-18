@@ -379,7 +379,7 @@ function mce_success_cb(resp){
   </tr>
 
 <% @events.sort_by{|t| t.start_at}.each do |event| %>
-  <% if event.start_at >= Time.now %>
+  <% if event.start_at.to_i >= Time.now.to_i - 18000  %>
   <tr>
     <td width="200"><%= link_to event.name, event %></td>
     <td width="200"><%= event.start_at %></td>
