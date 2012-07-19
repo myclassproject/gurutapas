@@ -12,16 +12,92 @@ a:active {color: #2c3651;}
         }
 -->
 
-<%= render 'form' %>
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
+
+<div id="name" style="position:absolute; left:170px; top:0px; width:220px">
+	What are the three genres most closely related to your writing?<br>
+    <%= f.text_field :genre %><p>
+    <%= f.text_field :genre2 %><p>
+    <%= f.text_field :genre3 %><p>
+</div>
+
+<div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:270px; z-index:3">
+  <h2>Writings in Progress</h2>
+  <table width="350">
+  <tr>
+    <td width="100" align="center">Title of a book you're still writing<br>
+ </td>
+    <td align="center">One sentence <br>description of the book <br>
+ </td>
+  </tr>
+  <tr>
+    <td><%= f.text_area :towrite, :cols => 12, :rows => 5 %>
+ </td>
+    <td><%= f.text_area :soonbookblurb, :cols => 25, :rows => 5 %>
+ </td>
+  </tr>
+  <tr>
+    <td align="center">Working title of a book you're developing a concept for<br>
+ </td>
+    <td align="center" valign="bottom">One sentence description <br>of the book/concept<br>
+ </td>
+  </tr>
+  <tr>
+    <td><%= f.text_area :towrite2, :cols => 12, :rows => 5 %>
+ </td>
+    <td><%= f.text_area :soonbookblurb2, :cols => 25, :rows => 5 %>
+ </td>
+  </tr></table>
+</div>
+
+
+<div id="fanbook" style="position:absolute; overflow:hidden; left:380px; top:170px; z-index:3">
+  <table  border="1" CELLPADDING="4" CELLSPACING="2" WIDTH="620">
+  <tr>
+    <td><h1><%= @author.name %>'s Books:</h1></td>   
+  </tr>
+  <tr>
+    <td width="250" align="center valign="bottom">Title of your latest book<br>
+<%= f.text_area :authorbook, :cols => 30, :rows => 1 %><br>
+URL for a picture of that book's jacket<br>
+<%= f.text_area :bookpicurl, :cols => 30, :rows => 1 %><br>
+URL for directing customers to the website where your book can be purchased <br>
+<%= f.text_area :bkpurchaseurl, :cols => 30, :rows => 1 %>
+</td>
+    <td>Paste a SHORT paragraph (500 characters max) about your latest book<br>
+<%= f.text_area :bookblurb, :cols => 40, :rows => 6 %>
+</td>
+  </tr>
+  <tr>
+    <td align="center valign="bottom">Title for one of your previous books<br>
+<%= f.text_area :authorbook2, :cols => 30, :rows => 1 %><br>
+URL for a picture of that book's jacket<br>
+<%= f.text_area :bookpicurl2, :cols => 30, :rows => 1 %><br>
+URL for directing customers to the website where your book can be purchased <br>
+<%= f.text_area :soonbkpicurl, :cols => 30, :rows => 1 %>
+</td>
+    <td>Paste a SHORT paragraph (500 characters max) about your previous book<br>
+<%= f.text_area :bookblurb2, :cols => 40, :rows => 6 %>
+</td>
+  </tr>
+  <tr>
+    <td align="center valign="bottom">Title for one of your first books<br>
+<%= f.text_area :authorbook3, :cols => 30, :rows => 1 %><br>
+URL for a picture of that book's jacket<br>
+<%= f.text_area :bookpicurl3, :cols => 30, :rows => 1 %><br>
+URL for directing customers to the website where your book can be purchased <br>
+<%= f.text_area :soonbkpicurl2, :cols => 30, :rows => 1 %><br>
+</td>
+    <td>Paste a SHORT paragraph (500 characters max) about this book<br>
+<%= f.text_area :bookblurb3, :cols => 40, :rows => 6 %>
+</td>
+  </tr>
+</table>
+</div>
 
 
 <div id="signup" style="position:absolute; overflow:hidden; 
-left:0px; top:330px; z-index:3">
-
-<span class="Body-C2"> Fill in the details for your GuruTapas Author web site </span>
-
-<%= form_for(@author, :html => { :multipart => true }) do |f| %>
-
+left:450px; top:0px; z-index:3">
 <table>
   <tr>
     <td> Password:</td>
@@ -33,98 +109,24 @@ left:0px; top:330px; z-index:3">
   </tr>
 </table>
 
-Save often: if an entry is rejected, newly-entered information won't be retained. We're working to fix that. After saving, you will be directed to your new Author page. You may come back to this page for continue to enter your information.
+For security, you must enter & confirm password every time you visit this page.
+Save often. After saving, you will be directed to your new Author page. You may come back to this page for continue to enter your information.
 
   <div class="field">
     <%= f.submit %><p>
+</div></div>
+
+<div id="profilePic" style="position:absolute; left:0px; top:0px; width:160px">
+URL for profile pic (Square is best) If you don't have a pic on the web, you can upload a picture at <a href = "http://photobucket.com" target="_blank"> Photobucket</a><br>
+    <%= f.text_area :title, :cols => 17, :rows => 4 %><p>
+</div>
+
+
+<div id="signup" style="position:absolute; overflow:hidden; 
+left:330px; top:900px; z-index:3">
 
 URL to your blog <br>
     <%= f.text_field :blogurl, :size => 80 %><p>
-
-	What are the three genres most closely related to your writing?<br>
-    <%= f.text_field :genre %>
-    <%= f.text_field :genre2 %>
-    <%= f.text_field :genre3 %><p>
-
-Enter the URL for a picture of yourself. (Square pictures work best.) If you don't have a picture on the web currently, you can upload a picture at <a href = "http://photobucket.com" target="_blank"> Photobucket</a>. Copy the Direct Link for your uploaded photo on that site and paste below.<br>
-    <%= f.text_field :title, :size => 80 %><p>
-
-  <div class="field">
-    <%= f.submit %>
-
-<h2>Your latest book</h2>
-
-Title of your latest book.<br>
-    <%= f.text_field :authorbook, :size => 80 %><p>
-
-URL for a picture of that book's jacket.<br>
-    <%= f.text_field :bookpicurl, :size => 80 %><p>
-
-Paste a SHORT paragraph (500 characters max) about your book <br />
-    <%= f.text_area :bookblurb, :cols => 62, :rows => 5 %><p>
-
-URL for directing customers to the website where your book can be purchased <br />
-    <%= f.text_field :bkpurchaseurl, :size => 80 %><p>
-
-  <div class="field">
-    <%= f.submit %><p>
-
-<h2>Your Previous Book</h2>
-
-Title for one of your previous books.<br>
-    <%= f.text_field :authorbook2, :size => 80 %><p>
-
-URL for a picture of that book's jacket.<br>
-    <%= f.text_field :bookpicurl2, :size => 80 %><p>
-
-Paste a SHORT paragraph about your book <br />
-    <%= f.text_area :bookblurb2, :cols => 62, :rows => 6 %><p>
-
-URL for directing customers to the website where your book can be purchased <br />
-    <%= f.text_field :soonbkpicurl, :size => 80 %><p>
-
-  <div class="field">
-    <%= f.submit %><p>
-
-<h2>Your First Book</h2>
-
-Title for one of your previous books.<br>
-    <%= f.text_field :authorbook3, :size => 80 %><p>
-
-URL for a picture of that book's jacket.<br>
-    <%= f.text_field :bookpicurl3, :size => 80 %><p>
-
-Paste a SHORT paragraph about your book <br />
-    <%= f.text_area :bookblurb3, :cols => 62, :rows => 6 %><p>
-
-URL for the website where your book can be purchased <br />
-    <%= f.text_field :soonbkpicurl2, :size => 80 %><p>
-
-  <div class="field">
-    <%= f.submit %><p>
-
-
-<h2>Books In Progress</h2>
-
-Title of a book you're still writing.<br>
-    <%= f.text_field :towrite, :size => 80 %><p>
-
-One sentence description of the book.<br>
-    <%= f.text_area :soonbookblurb, :cols => 62, :rows => 3 %><p>
-
-
-Title or description of a book you're developing a concept for.<br>
-    <%= f.text_field :towrite2, :size => 80 %><p>
-
-One sentence about the book's concept.<br>
-    <%= f.text_area :soonbookblurb2, :cols => 62, :rows => 3 %><p>
-
-<p>
-
-  <div class="field">
-    <%= f.submit %><p>
-
-  </div>
 
   <div class="field">
     Twitter ID (Without the '@' symbol)<br />

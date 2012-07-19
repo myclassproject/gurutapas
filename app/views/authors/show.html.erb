@@ -25,8 +25,10 @@ a:active {color: #901A2A;}
 
 <%= render 'authorform' %>
 
-<%= link_to 'Fill in or edit this page', edit_author_path(@author) %> <p>
-<%= link_to 'See the list of all GuruTapas Authors', authors_path %>
+<% if @author == current_user %>
+<%= link_to 'Fill in or edit this page', edit_author_path(@author) %>
+<% end %>
+<p>
 
 
 <!-- <%= image_tag @author.avatar.url %>
