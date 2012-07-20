@@ -8,25 +8,12 @@ rails generate migration add_remember_token_to_authors
 bundle exec rake db:migrate
 -->
 
-<style type="text/css">
-
-<body 
-a:link {color: #901A2A; text-decoration: none}}
-a:visited {color: #901A2A;}
-a:hover {color: #FFFFFF;}
-a:active {color: #901A2A;}
-.Body-G        {
-        font-family:"Verdana", sans-serif; font-size:12.0px; 
-        line-height:1.0em; color:#901A2A; font-weight:"bold";
-        }
-
-</style>
-</head>
-
 <%= render 'authorform' %>
 
 <% if @author == current_user %>
 <%= link_to 'Fill in or edit this page', edit_author_path(@author) %>
+<%= button_to "Edit", :action => "edit" %><p>
+
 <% end %>
 <p>
 
@@ -45,14 +32,14 @@ a:active {color: #901A2A;}
 
 <div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:270px; z-index:3">
 
-  <h2>Writings in Progress</h2>
+  <span class="Body-C5">Writings in Progress</span>
   <table width="350">
   <tr>
-    <td width="100"><b><font color=901A2A><%= @author.towrite %></font></b> </td>
+    <td width="100"><span class="Body-C7"><%= @author.towrite %> </span></td>
     <td><i><%= @author.soonbookblurb %></i>
   </tr>
   <tr>
-    <td><b><font color=901A2A><%= @author.towrite2 %></font></b> </td>
+    <td><b><span class="Body-C7"><%= @author.towrite2 %></span></b> </td>
     <td><i><%= @author.soonbookblurb2 %></i>
   </tr></table><p>
 
@@ -67,11 +54,11 @@ a:active {color: #901A2A;}
   <table CELLPADDING="4" CELLSPACING="2" WIDTH="620">
   <tr>
     <td></td>    <td></td>
-    <td><h1>My Books:</h1></td>
+    <td><span class="Body-C6"><%= @author.name %>'s Books:</span></td>
   </tr>
   <tr>
-    <td width="50"><a href= <%= @author.bkpurchaseurl %>> <img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" target="_blank"></a></td>
-    <td WIDTH="120"><b><a href= <%= @author.bkpurchaseurl %> style="text-decoration: none", color="#901A2A", target="_blank"> <%= @author.authorbook %></b> </a> </td>
+    <td width="50"><span class="Body-C7"><a href= <%= @author.bkpurchaseurl %>> <img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" target="_blank"></a></td>
+    <td WIDTH="120"><b><a href= <%= @author.bkpurchaseurl %> style="text-decoration: none", target="_blank"> <%= @author.authorbook %></a></b></span> </td>
     <td> <i><%= @author.bookblurb %></i></td>
   </tr>
   <tr>

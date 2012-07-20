@@ -1,56 +1,4 @@
 <title> GuruTapas - <%= @author.name %> Author site</title>
-<style type="text/css">
-<!--
-<body 
-a:link {color: #901A2A; text-decoration: none}
-a:visited {color: #901A2A; text-decoration: none}
-a:hover {color: #FFFFFF;}
-a:active {color: #901A2A;}
-.Body-P        {
-        margin:0.0px 0.0px 12.0px 0.0px; text-align:left; font-weight:400;
-         }
-.Body-P0
-        {
-        margin:0.0px 0.0px 12.0px 0.0px; text-align:center; font-weight:400;
-         }
-.Body-P1        {
-        margin:0.0px 0.0px 12.0px 0.0px; text-align:right; font-weight:400; 
-        }
-.Body-C        {
-        font-family:"Verdana", sans-serif; font-size:15.0px; 
-        line-height:1.20em; color:#64140f; 
-        }
-.Body-C0        {
-        font-family:"Gabriola", serif; font-size:27.0px; line-height:1.85em; 
-        }
-.Body-C1        {
-        font-family:"Verdana", sans-serif; font-size:16.0px; 
-        line-height:1.13em; 
-        }
-.Body-C2        {
-        font-family:"Gabriola", serif; font-weight:700; font-size:32.0px; 
-        line-height:1.84em; color:#64140f; 
-        }
-.Body-C3        {
-        font-family:"Beatnik SF", serif; font-weight:700; font-size:21.0px; 
-        line-height:1.10em; color:#64140f; 
-        }
-.Body-C4        {
-        font-family:"Comic Sans MS", cursive; font-size:13.0px; 
-        line-height:1.38em; 
-        }
-.Body-C5        {
-        font-family:"Beatnik SF", serif; font-weight:700; font-size:14.0px; 
-        line-height:1.16em; color:#ffffff; 
-        }
-.Body-C6        {
-        font-family:"Beatnik SF", serif; font-weight:700; font-size:27.0px; 
-        line-height:1.15em; color:#64140f; 
-        }
--->
-</style>
-</head>
-
 
 <img src= <%= @author.title %> border=0 width=150 height=150><p>
 
@@ -59,44 +7,19 @@ a:active {color: #901A2A;}
 </div>
 
 <div style="position:absolute; left:380px; top:0px; width:650px; height:30px;">
-<img src= "http://gurutapas.com/images/woodbar.png" alt="" title="" border=0 height="25" width="650" ></div>
+<img src= "http://gurutapas.com/images/purpleBar.png" alt="" title="" border=0 height="25" width="650" ></div>
 
 <div id="txt_5" style="position:absolute; left:400px; top:5px; width:728px; height:53px;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box; overflow:hidden;">
-<p class="Body-P"><span class="Body-C5">
+<span class="Body-C8">
 
-<a href="http://gurutapas.com" style="color:#ffffff;text-decoration:none;">GuruTapas Home</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://gurutapas.com" style="color:#ffffff;">GuruTapas Home</a> &nbsp;&nbsp;&nbsp;&nbsp;
 
-<a href="<%= author_path %>" style="color:#ffffff;text-decoration:none;" title="<%= @author.name %>"> <%= @author.name %> Books </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="<%= author_path %>" style="color:#ffffff;" title="<%= @author.name %>"> <%= @author.name %> Books </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<a href="<%= blog_author_path %>" style="color:#ffffff;text-decoration:none;">Blog </a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="<%= blog_author_path %>" style="color:#ffffff;">Blog </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-<a href="<%= interact_author_path %>" style="color:#ffffff;text-decoration:none;">Live Events</a></span></p>
+<a href="<%= interact_author_path %>" style="color:#ffffff;">Live Events</a></span>
 </div>
-
-
-<body background="http://gurutapas.com/images/coffeeSnackBook.jpg" bgcolor="#ffbfdf">
-</body>
-
-
-
-
-<div id="authorlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
-
-<%= form_for(@author, :html => { :multipart => true }) do |f| %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
-      <ul>
-      <% @author.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  </div>
-
-  <% end %>
 
 
 

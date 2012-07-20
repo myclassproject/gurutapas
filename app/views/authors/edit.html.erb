@@ -1,16 +1,6 @@
 <% @title="GuruTapas: Appetizers of Knowledge - edit your Author page" %>
-<!--
-<body 
-a:link {color: #2c3651;}
-a:visited {color: #1f5b8b;}
-a:hover {color: #2c3651;}
-a:active {color: #2c3651;}
 
-.Body-C2        {
-        font-family:"Gabriola", serif; font-weight:700; font-size:32.0px; 
-        line-height:1.84em; color:#64140f; 
-        }
--->
+<body >
 
 <%= form_for(@author, :html => { :multipart => true }) do |f| %>
 
@@ -22,7 +12,7 @@ a:active {color: #2c3651;}
 </div>
 
 <div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:270px; z-index:3">
-  <h2>Writings in Progress</h2>
+  <center><span class="Body-C5">Writings in Progress</span></center>
   <table width="350">
   <tr>
     <td width="100" align="center">Title of a book you're still writing<br>
@@ -54,7 +44,7 @@ a:active {color: #2c3651;}
 <div id="fanbook" style="position:absolute; overflow:hidden; left:380px; top:170px; z-index:3">
   <table  border="1" CELLPADDING="4" CELLSPACING="2" WIDTH="620">
   <tr>
-    <td><h1><%= @author.name %>'s Books:</h1></td>   
+    <td><span class="Body-C6"><%= @author.name %>'s Books:</span></td>   
   </tr>
   <tr>
     <td width="250" align="center valign="bottom">Title of your latest book<br>
@@ -97,7 +87,7 @@ URL for directing customers to the website where your book can be purchased <br>
 
 
 <div id="signup" style="position:absolute; overflow:hidden; 
-left:450px; top:0px; z-index:3">
+left:600px; top:0px; z-index:3"><span class="Body-C0">
 <table>
   <tr>
     <td> Password:</td>
@@ -152,6 +142,21 @@ Paste it into the box below. <br />
   </div>
 <% end %>
 
+<div id="authorlist" style="position:absolute; overflow:hidden; left:0px; top:330px; z-index:3">
+
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+      <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+</div>
 
 <%= link_to 'Show', @author %> |
 <%= link_to 'Back', authors_path %>
