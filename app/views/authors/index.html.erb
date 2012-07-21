@@ -9,12 +9,16 @@
 <span class="Body-C6">GuruTapas Featured Authors</span>
 <table>
   <tr>
+    <th></th>
     <th>Name</th><th>...</th>
     <th>Latest Book</th>
   </tr>
 
 <% @authors.each do |author| %>
   <tr>
+    <td> 
+   <img src= <%= author.title %> border=0 width=50 height=50>
+</td>
     <td color="#443c55" align="left"><%= link_to author.name, author %></td> <td>...</td>
     <td align="left"><%= author.authorbook %></td>
   </tr>
