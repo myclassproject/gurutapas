@@ -10,13 +10,13 @@
 <table>
   <tr>
     <th>Name</th><th>...</th>
-    <th>Book Title</th>
+    <th>Latest Book</th>
   </tr>
 
 <% @authors.each do |author| %>
   <tr>
     <td color="#443c55" align="left"><%= link_to author.name, author %></td> <td>...</td>
-    <td><%= author.authorbook %></td>
+    <td align="left"><%= author.authorbook %></td>
   </tr>
 <% end %>
 </table>
