@@ -1,12 +1,12 @@
 Gurutapas::Application.routes.draw do
   resources :events
-
   resources :bookevents
-
-  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
-
   resources :bookworms
   resources :bookpdfs
+  resources :bookfile
+  resources :authors
+
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   resources :sessions, only: [:create, :destroy, :new]
   match '/signup',  to: 'authors#new'
@@ -16,10 +16,6 @@ Gurutapas::Application.routes.draw do
   get "bookfile/show"
 
   get "attachments/show"
-
-  resources :bookfile
-  resources :authors
-
 
   resources :authors do
     resources :bookworms

@@ -2,3 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {margin: 0px; padding: 0px;}
+a:link {color: #443c55; text-decoration: none}
+a:visited {color: #443c55; text-decoration: none}
+a:hover {color: #aa55bb;  text-decoration: none; background-color:transparent;}
+a:active {color: #885599;}
+.Body-P
+        {
+        margin:0.0px 0.0px 12.0px 0.0px; text-align:left; font-weight:400; 
+        }
