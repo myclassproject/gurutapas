@@ -12,7 +12,7 @@ bundle exec rake db:migrate
 
 <% if @author == current_user %>
 <%= link_to 'Fill in or edit this page', edit_author_path(@author) %>
-<%= button_to "Edit", :action => "edit" %><p>
+<%= button_to "Edit", edit_author_path, :method=> :get %><p>
 
 <% end %>
 <p>
