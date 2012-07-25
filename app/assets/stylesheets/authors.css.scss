@@ -5,8 +5,8 @@
 //<style type="text/css">
 //<!--
 body {margin: 0px; padding: 0px;}
-a:link {color: #443c55; text-decoration: none}
-a:visited {color: #443c55; text-decoration: none}
+//qqq a:link {color: #443c55; text-decoration: none}
+//qqq a:visited {color: #443c55; text-decoration: none}
 a:hover {color: #aa55bb;  text-decoration: none; background-color:transparent;}
 a:active {color: #885599;}
 .Body-P
@@ -76,6 +76,11 @@ a:active {color: #885599;}
         {
         font-family:"Comic Sans MS", cursive; font-weight:700; 
         font-size:21.0px; line-height:1.43em; color:#ffffff; 
+        }
+.Body-D2
+        {
+        font-family:"Arial"; font-size:10.0px; color:#ff0000; 
+        line-height:.9em; text-align: center;
         }
 
 //-->

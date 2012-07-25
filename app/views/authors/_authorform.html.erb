@@ -1,6 +1,15 @@
 <title> GuruTapas - <%= @author.name %> Author site</title>
 
-<img src= <%= @author.title %> border=0 width=150 height=150><p>
+<% if @author.title != nil %>
+   <% if @author.title.match /http/ %>
+      <img src= <%= @author.title %> border=0 width=150 height=150><p>
+   <% else %>
+   <img src= "http://gurutapas.com/images/whiteBk.jpg" border=0 width=150 height=150><p>
+   <% end %>
+<% else %>
+   <img src= "http://gurutapas.com/images/whiteBk.jpg" border=0 width=150 height=150><p>
+<% end %>
+
 
 <div id="name" style="position:absolute; left:170px; top:0px; width:220px">
   <h2><%= @author.name %></h2>
