@@ -18,12 +18,12 @@
     <td> 
 <% if author.title != nil %>
    <% if author.title.match /http/ %>
-   <a href= <%= author %>> <img src=<%= author.title %> width="50" height="50" title= "<%= author.name %>" ></a>
+   <a href= <%= author.id %>> <img src=<%= author.title %> width="50" height="50" title= "<%= author.name %>" ></a>
    <% else %>
-   <a href= <%= author %>> <img src= "http://gurutapas.com/images/whiteBk.jpg" width="50" height="50" title= "<%= author.name %>"> </a> 
+   <a href= <%= author.id %>> <img src= "http://gurutapas.com/images/whiteBk.jpg" width="50" height="50" title= "<%= author.name %>"> </a> 
    <% end %>
 <% else %>
-   <a href= <%= author %>> <img src= http://gurutapas.com/images/whiteBk.jpg width="50" height="50" title= "<%= author.name %>"> </a> 
+   <a href= <%= author.id %>> <img src= http://gurutapas.com/images/whiteBk.jpg width="50" height="50" title= "<%= author.name %>"> </a> 
 <% end %>
 
 </td>
