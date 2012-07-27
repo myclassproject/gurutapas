@@ -7,19 +7,28 @@
 <%= button_to "Sign up as an author", new_author_path, :method=> :get %><p>
 
 <span class="Body-C6">GuruTapas Featured Authors</span>
-<table>
+<table CELLPADDING="0" CELLSPACING="10" WIDTH="620">
   <tr>
     <th></th>
-    <th>Name</th><th>...</th>
+    <th>Name</th>
     <th>Latest Book</th>
   </tr>
-
 <% @authors.each do |author| %>
   <tr>
     <td> 
-   <img src= <%= author.title %> border=0 width=50 height=50>
+<% if author.title != nil %>
+   <% if author.title.match /http/ %>
+   <a href= <%= author %>> <img src=<%= author.title %> width="50" height="50" title= "<%= author.name %>" ></a>
+   <% else %>
+   <a href= <%= author %>> <img src= "http://gurutapas.com/images/whiteBk.jpg" width="50" height="50" title= "<%= author.name %>"> </a> 
+   <% end %>
+<% else %>
+   <a href= <%= author %>> <img src= http://gurutapas.com/images/whiteBk.jpg width="50" height="50" title= "<%= author.name %>"> </a> 
+<% end %>
+
 </td>
-    <td color="#443c55" align="left"><%= link_to author.name, author %></td> <td>...</td>
+    <td color="#443c55" align="left">
+      <%= link_to author.name, author %></td>
     <td align="left"><%= author.authorbook %></td>
   </tr>
 <% end %>

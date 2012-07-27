@@ -5,9 +5,9 @@
 <div id="bkwormlist" style="position:absolute; overflow:hidden; left:100px; top:300px; z-index:3">
 
 <span class="Body-C4"><%= link_to 'Sign up to get a free site - where you talk about YOUR favorite books', new_bookworm_path %></span>
-<%= button_to "Sign up to be a bookworm", :action => "new" %><p>
+<%= button_to "Sign up to be a bookworm", new_bookworm_path, :method=> :get %><p>
 
-<p><p><p>
+<p><p>
 <span class="Body-C6" align="center">GuruTapas Featured Bookworms</span>
 <table>
   <tr>
