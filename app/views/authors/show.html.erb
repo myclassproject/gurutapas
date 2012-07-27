@@ -59,17 +59,21 @@ bundle exec rake db:migrate
    <% if @author.bookpicurl.match /http/ %>
    <a href= <%= @author.bkpurchaseurl %>> <img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" target="_blank"></a>
    <% else %>
-   <span class="Body-D2">
-   <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
-   <%= @author.authorbook %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+      <% if @author.authorbook.match /[A-Za-z]/ %>
+      <span class="Body-D2">
+      <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
+      <%= @author.authorbook %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% else %>
-<span class="Body-D2">
    <% if @author.authorbook != nil %>
-   <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
-   <%= @author.authorbook %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+   <span class="Body-D2">
+      <% if @author.authorbook.match /[A-Za-z]/ %>
+      <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
+      <%= @author.authorbook %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% end %></span>
 </td>
@@ -84,16 +88,20 @@ bundle exec rake db:migrate
    <a href= <%= @author.soonbkpicurl %>> <img src= <%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" target="_blank"></a>
    <% else %>
    <span class="Body-D2">
-   <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
-   <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+      <% if @author.authorbook2.match /[A-Za-z]/ %>
+      <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
+      <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% else %>
    <% if @author.authorbook2 != nil %>
    <span class="Body-D2">
-   <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
-   <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+      <% if @author.authorbook2.match /[A-Za-z]/ %>
+      <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
+      <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% end %></span>
 </td>
@@ -107,17 +115,21 @@ bundle exec rake db:migrate
    <% if @author.bookpicurl3.match /http/ %>
    <a href= <%= @author.soonbkpicurl2 %>> <img src= <%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" target="_blank"></a>
    <% else %>
-   <span class="Body-D2">
-   <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
-   <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+      <% if @author.authorbook3.match /[A-Za-z]/ %>
+      <span class="Body-D2">
+      <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
+      <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% else %>
    <% if @author.authorbook3 != nil %>
-   <span class="Body-D2">
-   <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
-   <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
-   <br>by <%= @author.name %>
+      <% if @author.authorbook3.match /[A-Za-z]/ %>
+      <span class="Body-D2">
+      <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
+      <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
    <% end %>
 <% end %></span>
 </td>
