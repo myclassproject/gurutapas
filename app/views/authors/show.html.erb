@@ -9,12 +9,7 @@ bundle exec rake db:migrate
 
 <%= render 'authorform' %>
 
-
 <%= Author.destroy_all(['name = ?', "tu"]) %>
-
-<%= oldest = Author.find(:all, "name = ?", "Test Ustream") %>
-<%= oldest.each { |r| r.destroy } %>
-
 
 <% if @author == current_user %>
   <%= button_to "Edit Book Info", edit_author_path(current_user), :method=> :get %><br>
