@@ -1,31 +1,75 @@
 <% @title="GuruTapas: Appetizers of Knowledge - author " + @author.name + "'s blog" %>
 <%= render 'authorform' %>
 
+<table >
+      <tr>      <td > 
+<% if @author == current_user %>
+  <%= button_to "Edit Profile", profileinfo_author_path(current_user), :method=> :get %> </td>
+  <td><%= button_to "Edit books", edit_author_path(current_user), :method=> :get %> </tr>
+<% end %> </table>
+
+
 <div id="fanbook" style="position:absolute; overflow:hidden; left:0px; top:200px; z-index:3">
-  <table CELLPADDING="4" CELLSPACING="2" WIDTH="300">
-  <tr>
-    <td></td>  
-    <td><h1>My Books:</h1></td>
-  </tr>
-  <tr>
-    <td width="50"><img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" ></td>
-    <td WIDTH="120" ><b><font color=901A2A><%= @author.authorbook %></b></font> </td>
-  </tr>
-  <tr>
-    <td><img src=<%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" ></td>
-    <td><b><font color=901A2A><b><%= @author.authorbook2 %></font></b> </td>
-  </tr>
-  <tr>
-    <td><img src=<%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" ></td>
-    <td><b><font color=901A2A><%= @author.authorbook3 %></font></b> </td>
-  </tr></table>
 
-  <br><h1>My fans:</h1>
+<% if @author.books.any? %>
+  <span class="Body-C6"><%= @author.name %>'s Books:</span>
+  <% @author.books.each do |book| %>
+    <table CELLPADDING="0" CELLSPACING="8" WIDTH="300">
+    <%= form_for(book) do |f| %>
+      <tr>      <td > </td><td style="line-height:94%">
+      <div style="float:left;width:65%;">
+      <b><a href= <%= book.bookpurchaseurl %> style="text-decoration: none", target="_blank" title= "Purchase <%= book.title %>"> <%= book.title %></b> </a></div>
+      <div style="float:right;width:35%;">
+      &nbsp<%= book.genre %></div></td></tr> 
+      <tr><td width="50"; style="width:50px;height:65px;background-color:#dddddd;  text-align: center; line-height:70%" >
+      <% if book.coverpicurl != nil %>
+        <% if book.coverpicurl.match /http/ %>
+          <a href= <%= book.bookpurchaseurl %>> <img src=<%= book.coverpicurl %> width="50" height="65" title= "Purchase <%= book.title %>" target="_blank"></a>
+        <% else %>
+          <% if book.title.match /[A-Za-z]/ %> 
+            <span class="Body-D2">
+            <a href= <%= book.bookpurchaseurl %> style="color: #880000" title= "Purchase <%= book.title %>"> <font color="880000" ><i>
+            <%= book.title %> <target="_blank"></font></i></a> 
+            <br>by <%= @author.name %>
+          <% end %>
+        <% end %>
+      <% end %></span></td><td><i><%= book.fiftychar %></i></td></tr>
+    <% end %>
+    </table>
+  <% end %>
+<% end %>
+
+<br>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 230,
+  theme: {
+    shell: {
+      background: '#ddbb99',
+      color: '#773355'
+    },
+    tweets: {
+      background: '#ddccaa',
+      color: '#221111',
+      links: '#901A2A'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('<%= @author.twitter %>').start();
+</script>
 </div>
 
-
-
-<div id="blog" style="position:absolute; overflow:hidden; left:300px; top:100px; z-index:3">
-<iframe frameborder="0" width="700" src= "<%= @author.blogurl %>" height="1000"></iframe>
+<div id="blog" style="position:absolute; overflow:hidden; left:300px; top:60px; z-index:3">
+<iframe frameborder="0" width="710" src= "<%= @author.blogurl %>" height="1000"></iframe>
 </div>
-

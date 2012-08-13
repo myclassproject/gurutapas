@@ -12,16 +12,23 @@ a:active {color: #2c3651;}
         }
 -->
 
+<%= render 'form' %>
 
 <div id="signup" style="position:absolute; overflow:hidden; 
-left:0px; top:330px; z-index:3">
+left:100px; top:300px; z-index:3">
+
+Sign up & sign in to hang out and learn with GuruTapas members.
+</div>
+
+<div id="signup" style="position:absolute; overflow:hidden; 
+left:100px; top:330px; z-index:3; align:left">
 
 <%= form_for(:session, url: sessions_path) do |f| %>
 
-  <%= f.label :email %>: 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.label :email %>: 
   <%= f.text_field :email %><br>
   
-  <%= f.label :password %>
+  <%= f.label :password %>:
   <%= f.password_field :password %><br>
 
   <%= f.submit "Sign in" %>

@@ -1,0 +1,26 @@
+<table CELLPADDING="0" CELLSPACING="8" WIDTH="200">
+ <tr>
+    <td > </td>
+    <td>
+<div style="float:left;width:75%;">
+<b><a href= <%= book.bookpurchaseurl %> style="text-decoration: none", target="_blank" title= "Purchase <%= book.title %>"> <%= book.title %></b> </a></div>
+  <div style="float:right;width:25%;">
+&nbsp&nbsp<%= book.genre %></div>
+</td></tr>
+    <tr>
+<td style="width:50px;height:65px;background-color:#dddddd;  text-align: center; line-height:90%" >
+<% if book.coverpicurl != nil %>
+   <% if book.coverpicurl.match /http/ %>
+   <a href= <%= book.bookpurchaseurl %>> <img src=<%= book.coverpicurl %> width="50" height="65" title= "Purchase <%= book.title %>" target="_blank"></a>
+   <% else %>
+      <% if book.title.match /[A-Za-z]/ %> 
+      <span class="Body-D2">
+      <a href= <%= book.bookpurchaseurl %> style="color: #880000" title= "Purchase <%= book.title %>"> <font color="880000" ><i>
+      <%= book.title %> <target="_blank"></font></i></a> 
+      <br>by <%= @author.name %>
+      <% end %>
+   <% end %>
+<% end %></span>
+
+</tr>
+</table>

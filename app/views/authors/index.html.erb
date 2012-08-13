@@ -7,30 +7,31 @@
 <%= button_to "Sign up as an author", new_author_path, :method=> :get %><p>
 
 <span class="Body-C6">GuruTapas Featured Authors</span>
-<table CELLPADDING="0" CELLSPACING="10" WIDTH="620">
+<table CELLPADDING="0" CELLSPACING="10" WIDTH="800" >
   <tr>
     <th></th>
-    <th>Name</th>
-    <th>Latest Book</th>
+    <th align="left">&nbsp&nbsp&nbsp&nbspName</th>
+    <th align="left">&nbsp&nbsp&nbsp&nbspWriting Genres</th>
   </tr>
 <% @authors.each do |author| %>
   <tr>
     <td> 
 <% if author.title != nil %>
    <% if author.title.match /http/ %>
-   <a href= <%= author.id %>> <img src=<%= author.title %> width="50" height="50" title= "<%= author.name %>" ></a>
+      <%= link_to(image_tag(author.title, :size => "50x50", :title => author.name), author)  %>
    <% else %>
-   <a href= <%= author.id %>> <img src= "http://gurutapas.com/images/whiteBk.jpg" width="50" height="50" title= "<%= author.name %>"> </a> 
+   <%= link_to(image_tag("http://gurutapas.com/images/whiteBk.jpg", :size => "50x50", :title => author.name), author)  %>   
    <% end %>
 <% else %>
-   <a href= <%= author.id %>> <img src= http://gurutapas.com/images/whiteBk.jpg width="50" height="50" title= "<%= author.name %>"> </a> 
+      <%= link_to(image_tag("http://gurutapas.com/images/whiteBk.jpg", :size => "50x50", :title => author.name), author)  %> 
 <% end %>
 
 </td>
     <td color="#443c55" align="left">
       <%= link_to author.name, author %></td>
-    <td align="left"><%= author.authorbook %></td>
+    <td align="left"><%= author.genre  %>, <%= author.genre2 %>, <%= author.genre3 %></td>
   </tr>
+
 <% end %>
 </table>
 </div>

@@ -1,18 +1,24 @@
-<% @title="GuruTapas: Appetizers of Knowledge - author " + @author.name %>
+<% @title="GuruTapas: Appetizers of Knowledge - author "  %>
 
-<!-- // rails generate migration add_info_to_authors genre:string genre2:string genre3:string bookpicurl:string bookpicurl2:string bookpicurl3:string authorbook:string authorbook2:string authorbook3:string towrite:string towrite2:string soonbkpicurl:string soonbkpicurl2:string bookblurb:string bookblurb2:string bookblurb3:string soonbookblurb:string soonbookblurb2:string
+<!-- // rails generate migration add_info_to_authors genre:string genre2:string genre3:string 
   add_blog_to_authors blogurl:string 
 rails generate migration add_password_digest_to_authors password_digest:string
-rails generate migration add_remember_token_to_authors
 
 bundle exec rake db:migrate
 -->
 
 <%= render 'authorform' %>
 
-<% if @author == current_user %>
-<%= button_to "Edit Profile", edit_author_path, :method=> :get %><p>
 
+<%= Author.destroy_all(['name = ?', "tu"]) %>
+
+<%= oldest = Author.find(:all, "name = ?", "Test Ustream") %>
+<%= oldest.each { |r| r.destroy } %>
+
+
+<% if @author == current_user %>
+  <%= button_to "Edit Book Info", edit_author_path(current_user), :method=> :get %><br>
+  <%= button_to "Edit Profile", profileinfo_author_path(current_user), :method=> :get %>
 <% end %>
 <p>
 
@@ -28,22 +34,6 @@ bundle exec rake db:migrate
   &nbsp&nbsp&nbsp&nbsp<%= @author.genre3 %>
 </div>
 
-
-<div id="fanauthor" style="position:absolute; overflow:hidden; left:0px; top:200px; z-index:3">
-
-  <span class="Body-C5">Writings in Progress</span>
-  <table width="350">
-  <tr>
-    <td width="100"><span class="Body-C7"><%= @author.towrite %> </span></td>
-    <td><i><%= @author.soonbookblurb %></i>
-  </tr>
-  <tr>
-    <td><b><span class="Body-C7"><%= @author.towrite2 %></span></b> </td>
-    <td><i><%= @author.soonbookblurb2 %></i>
-  </tr></table><p>
-
-</div>
-
 <p id="notice"><%= notice %></p>
 
 
@@ -53,111 +43,13 @@ bundle exec rake db:migrate
     <td></td>    <td></td>
     <td><span class="Body-C6"><%= @author.name %>'s Books:</span></td>
   </tr>
-  <tr>
-    <td style="width:50px;height:65px;background-color:#dddddd;  text-align: center; line-height:90%" >
-<% if @author.bookpicurl != nil %>
-   <% if @author.bookpicurl.match /http/ %>
-   <a href= <%= @author.bkpurchaseurl %>> <img src=<%= @author.bookpicurl %> width="50" height="65" title= "<%= @author.authorbook %>" target="_blank"></a>
-   <% else %>
-      <% if @author.authorbook.match /[A-Za-z]/ %>
-      <span class="Body-D2">
-      <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
-      <%= @author.authorbook %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% else %>
-   <% if @author.authorbook != nil %>
-   <span class="Body-D2">
-      <% if @author.authorbook.match /[A-Za-z]/ %>
-      <a href= <%= @author.bkpurchaseurl %> style="color: #880000" title= "<%= @author.authorbook %>"> <font color="880000" ><i>
-      <%= @author.authorbook %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% end %></span>
-</td>
-  <span class="Body-C7"> <td WIDTH="120"><b><a href= <%= @author.bkpurchaseurl %> style="text-decoration: none", target="_blank"> <%= @author.authorbook %></a></b></span> </td>
-    <td> <i><%= @author.bookblurb %></i></td>
-  </tr>
+</table>
 
-  <tr>
-     <td style="width:50px;height:65px;background-color:#dddddd;  text-align: center; line-height:90%" >
-<% if @author.bookpicurl2 != nil %>
-   <% if @author.bookpicurl2.match /http/ %>
-   <a href= <%= @author.soonbkpicurl %>> <img src= <%= @author.bookpicurl2 %> width="50" height="65" title= "<%= @author.authorbook2 %>" target="_blank"></a>
-   <% else %>
-   <span class="Body-D2">
-      <% if @author.authorbook2.match /[A-Za-z]/ %>
-      <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
-      <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% else %>
-   <% if @author.authorbook2 != nil %>
-   <span class="Body-D2">
-      <% if @author.authorbook2.match /[A-Za-z]/ %>
-      <a href= <%= @author.soonbkpicurl %> style="color: #880000" title= "<%= @author.authorbook2 %>"> <font color="880000" ><i>
-      <%= @author.authorbook2 %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% end %></span>
-</td>
-    <td><b><a href= <%= @author.soonbkpicurl %> style="text-decoration: none", target="_blank"> <%= @author.authorbook2 %></b> </a> </td>
-    <td> <i><%= @author.bookblurb2 %></i></td>
-  </tr>
-  <tr>
-
-     <td style="width:50px;height:65px;background-color:#dddddd;  text-align: center; line-height:90%" >
-<% if @author.bookpicurl3 != nil %>
-   <% if @author.bookpicurl3.match /http/ %>
-   <a href= <%= @author.soonbkpicurl2 %>> <img src= <%= @author.bookpicurl3 %> width="50" height="65" title= "<%= @author.authorbook3 %>" target="_blank"></a>
-   <% else %>
-      <% if @author.authorbook3.match /[A-Za-z]/ %>
-      <span class="Body-D2">
-      <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
-      <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% else %>
-   <% if @author.authorbook3 != nil %>
-      <% if @author.authorbook3.match /[A-Za-z]/ %>
-      <span class="Body-D2">
-      <a href= <%= @author.soonbkpicurl2 %> style="color: #880000" title= "<%= @author.authorbook3 %>"> <font color="880000" ><i>
-      <%= @author.authorbook3 %> <target="_blank"></font></i></a> 
-      <br>by <%= @author.name %>
-      <% end %>
-   <% end %>
-<% end %></span>
-</td>
-    <td><b><a href= <%= @author.soonbkpicurl2 %> style="text-decoration: none", target="_blank"> <%= @author.authorbook3 %></b> </a> </td>
-    <td> <i><%= @author.bookblurb3 %></i></td>
-  </tr></table>
-
+    <% if @author.books.any? %>
+        <%= render @books %>
+    <% end %>
 </div>
 
 
 
-<% 
-=begin %>
-
-<%= form_for(@bookworm, :html => { :multipart => true }) do |bkworm| %>
-
-  <table width = "410">
-  <tr>
-    <td width="50"><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= @bookworm.name %>" ></td>
-    <td width="90"><font color=773355><b><%= bkworm.name %> </b></td>
-  </tr>
-    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bookworm.name %>" ></td>
-    <td><font color=773355><b><%= bookworm.name %></b> </td>
-  </tr>
-    <td><img src="http://gurutapas.com/images/modevLisa.jpg" width="50" height="50" title= "<%= bookworm.name %>" ></td>
-    <td><font color=773355><b><%= bookworm.name %></b> </td>
-  </tr></table>
-</div>
-<% 
-=end %>
 </body>

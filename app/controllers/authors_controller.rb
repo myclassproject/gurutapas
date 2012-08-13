@@ -16,6 +16,8 @@ class AuthorsController < ApplicationController
   # GET /authors/1.json
   def show
     @author = Author.find(params[:id])
+    @books = @author.books
+    @book = current_user.books.build if signed_in?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,7 +25,7 @@ class AuthorsController < ApplicationController
     end
   end
 
-  # GET /authors/1
+  # GET /authors/1  28
   # GET /authors/1.json
   def blog
     @author = Author.find(params[:id])
@@ -35,7 +37,19 @@ class AuthorsController < ApplicationController
   end
 
 
-  # GET /authors/1
+  # GET /authors/1  40
+  # GET /authors/1.json
+  def profileinfo
+    @author = Author.find(params[:id])
+
+    respond_to do |format|
+      format.html # profileinfo.html.erb
+      format.json { render json: @author }
+    end
+  end
+
+
+  # GET /authors/1  52
   # GET /authors/1.json
   def interact
     @author = Author.find(params[:id])
@@ -59,13 +73,17 @@ class AuthorsController < ApplicationController
   end
 
 
-  # GET /authors/1/edit
+  # GET /authors/1/edit 76
   def edit
-#    @author = Author.find(params[:id])
+    @author = Author.find(params[:id])
+    @books = @author.books
+    @book = current_user.books.build if signed_in?
+    @booklist = Book.where(:author_id => @author.id)
   end
 
-  # POST /authors       66
-  # POST /authors.json  67
+
+  # POST /authors       
+  # POST /authors.json  86
   def create
     @author = Author.new(params[:author])
 
@@ -83,10 +101,12 @@ class AuthorsController < ApplicationController
 #    end
   end
 
-  # PUT /authors/1
+
+  # PUT /authors/1 105
   # PUT /authors/1.json
   def update
-#    @author = Author.find(params[:id])
+    @author = Author.find(params[:id])
+    @booklist = Book.where(:author_id => @author.id)
 
 #    respond_to do |format|
       if @author.update_attributes(params[:author])
@@ -95,7 +115,7 @@ class AuthorsController < ApplicationController
 #        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
 #        format.json { head :ok }
       else
-        render 'edit'
+        render 'profileinfo'
 #        format.html { render action: "edit" }
 #        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
@@ -116,13 +136,6 @@ class AuthorsController < ApplicationController
 
 
   private
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Please sign in."
-      end
-    end
 
     def correct_user
       @author = Author.find(params[:id])

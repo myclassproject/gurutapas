@@ -5,9 +5,13 @@
 <%= render 'form' %>
 
 <div id="signup" style="position:absolute; overflow:hidden; 
-left:150px; top:330px; z-index:3">
+left:100px; top:300px; z-index:3">
 
-<span class="Body-C5"> Sign up to be included on the GuruTapas Author List </span>
+Sign up & sign in to hang out and learn with GuruTapas members.
+</div>
+
+<div id="signup" style="position:absolute; overflow:hidden; 
+left:100px; top:330px; z-index:3; align:left">
 
 <%= form_for(@author, :html => { :multipart => true }) do |f| %>
 
@@ -31,11 +35,8 @@ left:150px; top:330px; z-index:3">
 </table>
 
 <p>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 
-<%= link_to 'Back', authors_path %>
-</div>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+ </div>
+<% end %>
 </body>

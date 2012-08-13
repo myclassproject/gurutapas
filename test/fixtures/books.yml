@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  coverpicurl: MyString
+  title: MyString
+  blurb: MyText
+  author_id: 1
+
+two:
+  coverpicurl: MyString
+  title: MyString
+  blurb: MyText
+  author_id: 1

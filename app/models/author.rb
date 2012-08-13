@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
- attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :bookpicurl, :bookpicurl2, :bookpicurl3, :authorbook, :authorbook2, :authorbook3, :towrite, :towrite2, :soonbkpicurl, :soonbkpicurl2, :bookblurb, :bookblurb2, :bookblurb3, :soonbookblurb, :soonbookblurb2, :blogurl, :bkpurchaseurl, :title
+ attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :twitter, :Ustreamid, :Ustreamchat, :title
 
   has_secure_password
 
@@ -10,6 +10,7 @@ class Author < ActiveRecord::Base
 
   has_many :bookworms
   has_many :bookpdfs
+  has_many :books, :dependent => :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
