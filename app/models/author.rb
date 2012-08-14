@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
- attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :twitter, :Ustreamid, :Ustreamchat, :title
+ attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :twitter, :Ustreamid, :Ustreamchat, :title, :blog
 
   has_secure_password
 

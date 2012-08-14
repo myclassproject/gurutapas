@@ -5,11 +5,10 @@
 rails generate migration add_password_digest_to_authors password_digest:string
 
 bundle exec rake db:migrate
+heroku run rake db:migrate
 -->
 
 <%= render 'authorform' %>
-
-<%= Author.destroy_all(['name = ?', "tu"]) %>
 
 <% if @author == current_user %>
   <%= button_to "Edit Book Info", edit_author_path(current_user), :method=> :get %><br>
