@@ -3,7 +3,8 @@
     <td > </td>
     <td>
 <div style="float:left;width:75%;">
-<b><a href= <%= book.bookpurchaseurl %> style="text-decoration: none", target="_blank" title= "Purchase <%= book.title %>"> <%= book.title %></b> </a></div>
+<b>
+<%= link_to(book.title, book)  %></b> </a></div>
   <div style="float:right;width:25%;">
 &nbsp&nbsp<%= book.genre %></div>
 </td></tr>

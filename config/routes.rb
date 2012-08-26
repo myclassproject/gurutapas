@@ -1,4 +1,8 @@
 Gurutapas::Application.routes.draw do
+  resources :plans
+
+  resources :purchases
+
   resources :events
   resources :bookevents
   resources :bookworms
@@ -11,15 +15,13 @@ Gurutapas::Application.routes.draw do
   resources :sessions, only: [:create, :destroy, :new]
   resources :books
 
-  match '/bookabbrev',  to: 'books#bookabbrev'
   match '/profileinfo',  to: 'authors#profileinfo'
   match '/infoerror',  to: 'authors#inputerror'
   match '/bookadded',  to: 'books#anothernew'
+  match '/buy',  to: 'books#buy'
   match '/signup',  to: 'authors#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-
-  get "bookfile/show"
 
   get "attachments/show"
 
@@ -27,6 +29,16 @@ Gurutapas::Application.routes.draw do
     resources :bookworms
     resources :bookpdfs
     resources :books
+  end
+
+  resources :books do
+    resources :purchases
+  end
+
+  resources :books do
+    member do
+      get 'buy'
+    end
   end
 
   resources :authors do

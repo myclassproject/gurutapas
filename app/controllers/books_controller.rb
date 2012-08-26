@@ -1,6 +1,14 @@
 class BooksController < ApplicationController
   before_filter :signed_in_user
 
+  def buy
+    @book = Book.find(params[:id])
+    @purchase = @book.purchases.build(params[:purchase])
+
+#    @purchase = Purchase.new(params[:purchase])
+#    @purchase = Purchase.new
+  end
+
   def create
     @book = current_user.books.build(params[:book])
     if @book.save
@@ -12,6 +20,8 @@ class BooksController < ApplicationController
 
   def edit
     @booklist = Book.find(params[:author_id])
+    @book = Book.find(params[:id])
+    @purchases = @book.purchases
     if @book.save
       redirect_to author_path(current_user)
     else
@@ -29,6 +39,17 @@ class BooksController < ApplicationController
       end
   end
 
+  # GET /books/1
+  # GET /books/1.json
+  def show
+    @book = Book.find(params[:id])
+    @purchases = @book.purchases
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @book }
+    end
+  end
 
   def destroy
   end

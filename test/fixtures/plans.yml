@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  author_id: 1
+  price: 1.5
+  term: 1
+
+two:
+  name: MyString
+  author_id: 1
+  price: 1.5
+  term: 1

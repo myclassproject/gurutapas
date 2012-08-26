@@ -87,18 +87,12 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new(params[:author])
 
-#    respond_to do |format|
       if @author.save
         sign_in @author
         redirect_to @author
-#        format.html { redirect_to @author, notice: 'Author was successfully created.' }
-#        format.json { render json: @author, status: :created, location: @author }
       else
         render 'new'
-#        format.html { render action: "new" }
-#        format.json { render json: @author.errors, status: :unprocessable_entity }
       end
-#    end
   end
 
 

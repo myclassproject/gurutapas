@@ -1,0 +1,22 @@
+  <b>Title:</b>
+  <%= @book.title %>
+</p>
+
+  <%= @book.coverpicurl %>
+</p>
+  <%= @book.blurb %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <% authorid = @book.author_id %>
+  <% author = Author.find(authorid) %>
+  <%= author.name %>
+
+</p>
+
+  <%= @book.id %>
+<p>
+
+
+<%= link_to "Buy Now", buy_book_path(:book_id => @book.id) %>

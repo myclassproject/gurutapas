@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'carrierwave'
+gem 'stripe'
 
 gem 'rails', '3.1.0'
 gem 'bcrypt-ruby', '3.0.1'

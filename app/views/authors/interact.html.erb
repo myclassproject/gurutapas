@@ -4,7 +4,7 @@
 <table >      <tr>      <td > 
 <% if @author == current_user %>
   <%= button_to "Edit Profile", profileinfo_author_path(current_user), :method=> :get %> </td>
-  <td><%= button_to "Edit books", edit_author_path(current_user), :method=> :get %> </tr>
+  <td><%= button_to "Edit Books", edit_author_path(current_user), :method=> :get %> </tr>
 <% end %> </table>
 
 <div id="fanbook" style="position:absolute; overflow:hidden; left:0px; top:200px; z-index:3">
