@@ -1,11 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_for @purchase do |f| %>
-
-  <% if @purchase.stripe_card_token.present? %>
-    <%= f.hidden_field :stripe_card_token %>
-  <% end %>
-
 <p>
   <b>Author:</b>
   <%= @purchase.author_id %>
@@ -16,11 +10,6 @@
   <%= @purchase.book_id %>
 </p>
 
-
-  <%= f.submit "Confirm" %>
-
-
-<% end %>
 
 <%= link_to 'Edit', edit_purchase_path %> |
 <%= link_to 'Back', purchases_path %>

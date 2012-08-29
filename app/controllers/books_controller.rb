@@ -3,10 +3,11 @@ class BooksController < ApplicationController
 
   def buy
     @book = Book.find(params[:id])
-    @purchase = @book.purchases.build(params[:purchase])
+#    @purchase = @book.purchases.build(params[:purchase])
 
 #    @purchase = Purchase.new(params[:purchase])
 #    @purchase = Purchase.new
+    @purchase = @book.purchases.new
   end
 
   def create

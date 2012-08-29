@@ -15,8 +15,5 @@
 
 </p>
 
-  <%= @book.id %>
-<p>
 
-
-<%= link_to "Buy Now", buy_book_path(:book_id => @book.id) %>
+<%= link_to "Buy Now", new_purchase_path(:book_id => @book.id) %>

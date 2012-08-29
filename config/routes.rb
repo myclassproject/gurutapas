@@ -1,8 +1,6 @@
 Gurutapas::Application.routes.draw do
   resources :plans
-
   resources :purchases
-
   resources :events
   resources :bookevents
   resources :bookworms
@@ -18,7 +16,6 @@ Gurutapas::Application.routes.draw do
   match '/profileinfo',  to: 'authors#profileinfo'
   match '/infoerror',  to: 'authors#inputerror'
   match '/bookadded',  to: 'books#anothernew'
-  match '/buy',  to: 'books#buy'
   match '/signup',  to: 'authors#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

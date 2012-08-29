@@ -24,31 +24,26 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   # GET /purchases/new.json 25
   def new
-#    book = Book.find(params[:book_id])
-#    @purchase = book.purchases.build
-
-#    @purchase = Purchase.new
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.json { render json: @purchase }
-#    end
+    @book = Book.find(params[:book_id])
+    @purchase = @book.purchases.new
   end
 
-  # GET /purchases/1/edit
+  # GET /purchases/1/edit 29
   def edit
     @purchase = Purchase.find(params[:id])
   end
 
-  # POST /purchases 42
+  # POST /purchases 34
   # POST /purchases.json
   def create
-    @book = Book.find(params[:book_id])
-    @purchase = @book.purchases.build(params[:purchase])
+    @purchase = Purchase.new(params[:purchase])
+
+#    raise params.to_yaml
 
     if @purchase.save_with_payment
       redirect_to @purchase, :notice => "Thank you for purchasing this book!"
     else
-      redirect_to show_book_path(book)
+      redirect_to authors_path, :notice => "Your order did not go through. Try again."
     end
   end
 

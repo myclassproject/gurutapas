@@ -11,9 +11,11 @@
     <% end %>
   <% end %>
 
-  <%= f.hidden_field :stripe_card_token %>
-
+  <%=  @book.id  %> hi <p>
+  <%= f.text_field :author_id, placeholder: "Author ID" %>
 <p>
+<%= f.hidden_field :book_id %>
+<%= f.hidden_field :stripe_card_token %>
 
   <% if @purchase.stripe_card_token.present? %>
     Credit card has been provided.

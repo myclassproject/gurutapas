@@ -1,6 +1,6 @@
 class Purchase < ActiveRecord::Base
 
-  attr_accessible :stripe_customer_token, :author_id, :book_id
+  attr_accessible :stripe_customer_token, :author_id, :book_id, :stripe_card_token
   attr_accessor :stripe_card_token
   
   belongs_to :book
@@ -10,19 +10,19 @@ class Purchase < ActiveRecord::Base
     if valid?
 
       customer = Stripe::Customer.create(
-        :description => "customer email", 
-        :card => stripe_card_token
+        :card => stripe_card_token,
+        :description => "customer email" 
       )
       self.stripe_customer_token = customer.id
 
 
-#      charge = Stripe::Charge.create(
-#        :amount => 1000,
-#        :currency => "usd",
-#        :customer => customer.id,
+      charge = Stripe::Charge.create(
+        :amount => 1000,
+        :currency => "usd",
+        :customer => customer.id,
 #        :card => stripe_card_token,
-#        :description => "book title"
-#      )
+        :description => "book title"
+      )
       save!
     end
 
