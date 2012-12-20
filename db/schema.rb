@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821200514) do
+ActiveRecord::Schema.define(:version => 20121005031706) do
 
   create_table "authors", :force => true do |t|
     t.string    "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120821200514) do
     t.string    "blogurl"
     t.string    "password_digest"
     t.string    "remember_token"
+    t.string    "profilepic"
   end
 
   add_index "authors", ["remember_token"], :name => "index_authors_on_remember_token"
@@ -86,6 +87,9 @@ ActiveRecord::Schema.define(:version => 20120821200514) do
     t.string   "bookpurchaseurl"
     t.string   "fiftychar"
     t.float    "price"
+    t.string   "bookpdf"
+    t.string   "image"
+    t.string   "coverpic"
   end
 
   add_index "books", ["author_id", "releasedate"], :name => "index_books_on_author_id_and_releasedate"

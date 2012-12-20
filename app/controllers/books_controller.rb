@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_filter :signed_in_user
 
   def buy
+# no longer used
     @book = Book.find(params[:id])
 #    @purchase = @book.purchases.build(params[:purchase])
 
@@ -30,7 +31,7 @@ class BooksController < ApplicationController
     end
    end
 
-
+#34
   def update
     @bklist = Book.find(params[:id])
       if @bklist.update_attributes(params[:book])

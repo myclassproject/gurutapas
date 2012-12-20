@@ -1,5 +1,4 @@
 <% @title="GuruTapas: Appetizers of Knowledge - author "  %>
-
 <%= render 'authorform' %>
 
 <% if @author == current_user %>
@@ -22,6 +21,11 @@
 
 <%= f.text_area :blogurl, :cols => 40, :rows => 1, placeholder: "URL to your blog" %><br>
 
+
+    Upload a picture of yourself (square is best)
+    <%= f.file_field :profilepic %>
+<br>
+
     <%= f.text_area :title, :cols => 40, :rows => 1, placeholder:  "URL for profile pic (Square is best)" %><br>
 If you don't have a profile pic on the web, you can upload a picture at <a href = "http://photobucket.com" target="_blank"> Photobucket</a> 
 </td></tr></table>
@@ -34,7 +38,10 @@ left:400px; top:50px; z-index:3"><span class="Body-C0">
   <tr>
     <td> Password:</td>
     <td><%= f.password_field :password %></td>
-    <td> &nbsp&nbsp&nbsp&nbsp <%= f.submit "Save Author Info" %></td>
+
+
+    <td> &nbsp&nbsp&nbsp&nbsp <%= f.submit "Save Author Info" %>
+    </td>
   </tr>
   <tr>
     <td>Password Confirmation:</td>

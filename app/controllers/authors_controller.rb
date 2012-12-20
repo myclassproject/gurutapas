@@ -13,12 +13,10 @@ class AuthorsController < ApplicationController
   end
 
   # GET /authors/1
-  # GET /authors/1.json
+  # GET /authors/1.json 16
   def show
     @author = Author.find(params[:id])
     @books = @author.books
-    @book = current_user.books.build if signed_in?
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @author }
@@ -62,7 +60,7 @@ class AuthorsController < ApplicationController
 
 
   # GET /authors/new
-  # GET /authors/new.json
+  # GET /authors/new.json 65
   def new
     @author = Author.new
 
@@ -96,7 +94,7 @@ class AuthorsController < ApplicationController
   end
 
 
-  # PUT /authors/1 105
+  # PUT /authors/1 99
   # PUT /authors/1.json
   def update
     @author = Author.find(params[:id])
@@ -104,6 +102,7 @@ class AuthorsController < ApplicationController
 
 #    respond_to do |format|
       if @author.update_attributes(params[:author])
+              print "AUTHOR UUUUUUUUUUUUUUUPDATE IF"
         sign_in @author
         redirect_to @author
 #        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
@@ -117,7 +116,7 @@ class AuthorsController < ApplicationController
   end
 
   # DELETE /authors/1
-  # DELETE /authors/1.json
+  # DELETE /authors/1.json 
   def destroy
     @author = Author.find(params[:id])
     @author.destroy

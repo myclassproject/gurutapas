@@ -1,7 +1,6 @@
 <% @title="GuruTapas: Appetizers of Knowledge - author "  %>
 
-<!-- // rails generate migration add_info_to_authors genre:string genre2:string genre3:string 
-  add_blog_to_authors blogurl:string 
+<!-- // rails generate migration add_pics_to_books coverpic:string
 rails generate migration add_price_to_books price:float
 
 bundle exec rake db:migrate
@@ -16,11 +15,6 @@ heroku run rake db:migrate
 <% end %>
 <p>
 
-
-<!-- <%= image_tag @author.avatar.url %>
-<%= image_tag @author.avatar.url(:medium) %>
-<%= image_tag @author.avatar.url(:thumb) %>
--->
 
 <div id="name" style="position:absolute; left:170px; top:70px; width:220px">
   &nbsp&nbsp&nbsp&nbsp<%= @author.genre %><p>

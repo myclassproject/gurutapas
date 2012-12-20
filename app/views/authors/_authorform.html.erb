@@ -1,13 +1,17 @@
 <title> GuruTapas - <%= @author.name %> Author site</title>
 
-<% if @author.title != nil %>
-   <% if @author.title.match /http/ %>
-      <img src= <%= @author.title %> border=0 width=150 height=150><p>
-   <% else %>
-   <img src= "http://gurutapas.com/images/whiteBk.jpg" border=0 width=150 height=150><p>
-   <% end %>
+<% if @author.profilepic_url != nil %>
+  <%= image_tag(@author.profilepic_url.to_s, :size => "150x150") %>
 <% else %>
+  <% if @author.title != nil %>
+    <% if @author.title.match /http/ %>
+      <img src= <%= @author.title %> border=0 width=150 height=150><p>
+    <% else %>
+      <img src= "http://gurutapas.com/images/whiteBk.jpg" border=0 width=150 height=150><p>
+    <% end %>
+  <% else %>
    <img src= "http://gurutapas.com/images/whiteBk.jpg" border=0 width=150 height=150><p>
+  <% end %>
 <% end %>
 
 

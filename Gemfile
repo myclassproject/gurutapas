@@ -1,13 +1,16 @@
 source 'http://rubygems.org'
 
+gem 'fog', '1.6.0'
 gem 'carrierwave'
 gem 'stripe'
+gem "debugger-pry", :require => "debugger/pry"
+gem 'aws-s3'
 
 gem 'rails', '3.1.0'
 gem 'bcrypt-ruby', '3.0.1'
 
 gem 'event-calendar', :require => 'event_calendar'
-gem "paperclip", "~> 2.0"
+#gem "paperclip", "~> 2.0"
 #gem 'rmagick'
 
 # Bundle edge Rails instead:

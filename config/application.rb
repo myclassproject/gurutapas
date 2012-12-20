@@ -12,7 +12,7 @@ end
 module Gurutapas
   class Application < Rails::Application
 
-     Paperclip::Railtie.insert
+#     Paperclip::Railtie.insert
     config.active_record.whitelist_attributes = true
 
     # Settings in config/environments/* take precedence over those specified here.

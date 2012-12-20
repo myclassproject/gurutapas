@@ -1,3 +1,7 @@
+<%= render 'form' %>
+
+<div style="position:absolute; left:100px; top:280px; text-align:left">
+
 <h1>Purchase a book</h1>
 <%= form_for @purchase do |f| %>
   <% if @purchase.errors.any? %>
@@ -8,9 +12,8 @@
   <% end %>
 
   <%= f.hidden_field :stripe_card_token %>
+  <%= f.hidden_field :book_id %>
 
-  <%= f.label :author_id %> Instead of email, will not be an entry field but logged in user_id later<p>
-  <%= f.text_field :author_id %><p>
 
   <% if @purchase.stripe_card_token.present? %>
     Credit card has been provided.
@@ -32,3 +35,4 @@
 
   <%= f.submit "Purchase" %>
 <% end %>
+</div>

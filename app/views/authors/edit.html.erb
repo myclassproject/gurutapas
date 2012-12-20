@@ -6,8 +6,10 @@
 
 <div id="bkinp" style="position:absolute; overflow:hidden; left:380px; top:100px; z-index:3">
 
-<%= form_for(@book) do |f| %>
+<%= form_for@book, :html => {:multipart => true} do |f| %>
   <center><span class="Body-C5">Enter Book info</span></center>
+
+  <%= f.hidden_field :author_id %>
 
   <table width="400">
   <tr>
@@ -29,10 +31,22 @@
     <%= f.date_select :releasedate %>
  </td>
   </tr>
-    <tr><td><%= f.text_area :coverpicurl, :cols => 70, :rows => 1, placeholder: "URL to a picture of the cover of your book" %>
+    <tr><td><%= f.text_area :coverpicurl, :cols => 70, :rows => 1, placeholder: "URL to a picture of the cover of your book" %><p>
+   
+
+    Upload a picture of your book cover 
+    <%= f.file_field :coverpic %>
+    Or image url:     <%= f.text_field :remote_coverpic_url %>
 </tr>
+
     <tr><td><%= f.text_area :bookpurchaseurl, :cols => 70, :rows => 1, placeholder: "URL to a web page where your book can be purchased" %>
+</tr>    <tr><td><%= f.text_area :coverpicurl, :cols => 70, :rows => 1, placeholder: "URL to a picture of the cover of your book" %><p>
+
+    Upload your ebook, as a pdf or other electronic file 
+    <%= f.file_field :bookpdf %>
+    Or image url:     <%= f.text_field :remote_bookpdf_url %>
 </tr>
+
   </table>
   <%= f.submit "Enter New Book" %>
 <% end %>
@@ -59,11 +73,24 @@
   <tr>
     <td >Date book is estimated to be or was released
     <%= f.date_select :releasedate %>
+
+<p>
+
+    Upload a picture of your book cover 
+    <%= f.file_field :coverpic %>
+    Or image url:     <%= f.text_field :remote_coverpic_url %>
+
  </td>
   </tr>
     <tr><td><%= f.text_area :coverpicurl, :cols => 70, :rows => 1, placeholder: "URL to a picture of the cover of your book" %>
 </tr>
     <tr><td><%= f.text_area :bookpurchaseurl, :cols => 70, :rows => 1, placeholder: "URL to a web page where your book can be purchased" %>
+
+<p>    Upload your ebook, as a pdf or other electronic file 
+    <%= f.file_field :bookpdf %>
+    Or image url:     <%= f.text_field :remote_bookpdf_url %>
+
+ </td>
 </tr>
   </table>
 
@@ -76,12 +103,6 @@
 
 </div>
 
-
-
-<!-- <%= image_tag @author.avatar.url %>
-<%= image_tag @author.avatar.url(:medium) %>
-<%= image_tag @author.avatar.url(:thumb) %>
--->
 
 <div id="name" style="position:absolute; left:170px; top:70px; width:220px">
   &nbsp&nbsp&nbsp&nbsp<%= @author.genre %><p>

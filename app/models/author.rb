@@ -1,12 +1,14 @@
 class Author < ActiveRecord::Base
- attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :twitter, :Ustreamid, :Ustreamchat, :title, :blogurl
+ attr_accessible :name, :email, :password, :password_confirmation, :genre, :genre2, :genre3, :twitter, :Ustreamid, :Ustreamchat, :title, :blogurl, :profilepic
 
   has_secure_password
+
+  mount_uploader :profilepic, ProfilepicUploader
 
   before_save { |author| author.email = email.downcase }
   before_save :create_remember_token
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }  # ,  :storage => :s3 }
+#  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }  # ,  :storage => :s3 }
 
   has_many :bookworms
   has_many :bookpdfs
@@ -20,8 +22,14 @@ class Author < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true 
 
+
+print "AAAAAAAAAAAAUTHOR model ENDSTUFF called"
+
   private
 #22
+
+print "AAAAAAAAAAAAUTHOR model REMEMBERTOKEN called"
+
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
